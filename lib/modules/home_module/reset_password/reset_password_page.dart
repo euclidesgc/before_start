@@ -26,6 +26,12 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
+              const SizedBox(height: 50),
+              SizedBox(
+                height: 200,
+                child: Image.asset(AppImages.logo),
+              ),
+              const SizedBox(height: 16),
               const Text(
                 'Você receberá um e-mail com informações para recuperar sua senha.',
                 textAlign: TextAlign.justify,
@@ -59,13 +65,16 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                       },
                     ),
                     const SizedBox(height: 16),
-                    AppButton(
-                      label: 'Enviar',
-                      onPressed: () {
-                        if (_formKey.currentState!.validate()) {
-                          doUserResetPassword();
-                        }
-                      },
+                    SizedBox(
+                      width: MediaQuery.of(context).size.width,
+                      child: AppButton(
+                        label: 'Enviar',
+                        onPressed: () {
+                          if (_formKey.currentState!.validate()) {
+                            doUserResetPassword();
+                          }
+                        },
+                      ),
                     )
                   ],
                 ),

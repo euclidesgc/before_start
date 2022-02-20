@@ -24,75 +24,74 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
       appBar: AppBar(
         title: const Text('Login'),
       ),
-      body: Center(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(8),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              SizedBox(
-                height: 200,
-                child: Image.asset(AppImages.logo),
-              ),
-              const SizedBox(height: 16),
-              Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    AppTextField(
-                      labelText: 'Login',
-                      controller: controllerUsername,
-                      enabled: !isLoggedIn,
-                      keyboardType: TextInputType.text,
-                      textCapitalization: TextCapitalization.none,
-                      autocorrect: false,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Informe seu login';
-                        }
-                        return null;
-                      },
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(8),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const SizedBox(height: 50),
+            SizedBox(
+              height: 200,
+              child: Image.asset(AppImages.logo),
+            ),
+            const SizedBox(height: 16),
+            Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  AppTextField(
+                    labelText: 'Login',
+                    controller: controllerUsername,
+                    enabled: !isLoggedIn,
+                    keyboardType: TextInputType.text,
+                    textCapitalization: TextCapitalization.none,
+                    autocorrect: false,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Informe seu login';
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(height: 16),
+                  AppTextField(
+                    labelText: 'Password',
+                    controller: controllerPassword,
+                    enabled: !isLoggedIn,
+                    obscureText: true,
+                    keyboardType: TextInputType.text,
+                    textCapitalization: TextCapitalization.none,
+                    autocorrect: false,
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Informe sua senha';
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(height: 16),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    child: AppButton(
+                      label: 'Entrar',
+                      onPressed: isLoggedIn
+                          ? null
+                          : () {
+                              if (_formKey.currentState!.validate()) {
+                                controller.efetuarLogin(login: controllerUsername.text, senha: controllerPassword.text);
+                              }
+                            },
                     ),
-                    const SizedBox(height: 16),
-                    AppTextField(
-                      labelText: 'Password',
-                      controller: controllerPassword,
-                      enabled: !isLoggedIn,
-                      obscureText: true,
-                      keyboardType: TextInputType.text,
-                      textCapitalization: TextCapitalization.none,
-                      autocorrect: false,
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Informe sua senha';
-                        }
-                        return null;
-                      },
-                    ),
-                    const SizedBox(height: 16),
-                    SizedBox(
-                      width: MediaQuery.of(context).size.width,
-                      child: AppButton(
-                        label: 'Entrar',
-                        onPressed: isLoggedIn
-                            ? null
-                            : () {
-                                if (_formKey.currentState!.validate()) {
-                                  controller.efetuarLogin(login: controllerUsername.text, senha: controllerPassword.text);
-                                }
-                              },
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-              const SizedBox(height: 16),
-              AppButton.secondary(
-                label: 'Esqueceu a senha?',
-                onPressed: () => Modular.to.pushNamed('/reset_password_page'),
-              ),
-            ],
-          ),
+            ),
+            const SizedBox(height: 16),
+            AppButton.secondary(
+              label: 'Esqueceu a senha?',
+              onPressed: () => Modular.to.pushNamed('/reset_password_page'),
+            ),
+          ],
         ),
       ),
     );

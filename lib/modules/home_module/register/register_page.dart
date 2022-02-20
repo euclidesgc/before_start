@@ -88,7 +88,6 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   const SizedBox(height: 16),
                   SizedBox(
-                    height: 50,
                     child: AppButton(
                       label: 'Salvar',
                       onPressed: () {

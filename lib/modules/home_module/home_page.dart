@@ -17,28 +17,27 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
         title: const Text('Mentoria Before Start'),
       ),
-      body: Center(
-        child: SingleChildScrollView(
-          padding: const EdgeInsets.all(8),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              SizedBox(
-                height: 200,
-                child: Image.asset(AppImages.logo),
-              ),
-              const SizedBox(height: 16),
-              AppButton(
-                label: 'Fazer Login',
-                onPressed: () => Modular.to.pushNamed('/login_page'),
-              ),
-              const SizedBox(height: 16),
-              AppButton.secondary(
-                label: 'Registre-se',
-                onPressed: () => Modular.to.pushNamed('/register_page'),
-              ),
-            ],
-          ),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(8),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            const SizedBox(height: 50),
+            SizedBox(
+              height: 200,
+              child: Image.asset(AppImages.logo),
+            ),
+            const SizedBox(height: 16),
+            AppButton(
+              label: 'Fazer Login',
+              onPressed: () => Modular.to.pushNamed('/login_page'),
+            ),
+            const SizedBox(height: 16),
+            AppButton.secondary(
+              label: 'Registre-se',
+              onPressed: () => Modular.to.pushNamed('/register_page'),
+            ),
+          ],
         ),
       ),
     );
