@@ -37,6 +37,7 @@ dependencies:
   flutter_modular: ^4.4.0+1
   parse_server_sdk_flutter: ^3.1.0
   flutter_dotenv: ^5.0.2
+  dio: ^4.0.4
 
 dev_dependencies:
   flutter_test:

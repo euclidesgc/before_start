@@ -76,9 +76,9 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                       label: 'Entrar',
                       onPressed: isLoggedIn
                           ? null
-                          : () {
+                          : () async {
                               if (_formKey.currentState!.validate()) {
-                                controller.efetuarLogin(login: controllerUsername.text, senha: controllerPassword.text);
+                                controller.efetuarLogin(username: controllerUsername.text, password: controllerPassword.text);
                               }
                             },
                     ),

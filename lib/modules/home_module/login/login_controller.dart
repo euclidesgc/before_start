@@ -1,26 +1,31 @@
-import 'package:before_start/modules/utils/errors.dart';
-import 'package:flutter/foundation.dart';
-import 'package:flutter_modular/flutter_modular.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:before_start/modules/home_module/domain/usecases/login_usecase.dart';
+import 'package:flutter/material.dart';
 
-class LoginController with ReassembleMixin {
-  void efetuarLogin({required String login, required String senha}) async {
-    final username = login.trim();
-    final password = senha.trim();
+import '../domain/entities/credentials_entity.dart';
+import '../domain/entities/user_entity.dart';
 
-    final user = ParseUser(username, password, null);
-    var response = await user.login();
+class LoginController {
+  final LoginUsecase usecase;
 
-    if (response.success) {
-      Modular.to.pushReplacementNamed('/dashboard/');
-    } else {
-      //implementar isso usando Bloc
-      throw LoginError(message: response.error!.message);
-    }
-  }
+  LoginController({required this.usecase});
 
-  @override
-  void reassemble() {
-    debugPrint('reassemble');
+  void efetuarLogin({required String username, required String password}) async {
+    CredentialsEntity userCredentials = CredentialsEntity(username: username.trim(), password: password.trim());
+
+    final UserEntity user = await usecase(credentials: userCredentials);
+    debugPrint(user.toString());
+
+    // final username = login.trim();
+    // final password = senha.trim();
+
+    // final user = ParseUser(username, password, null);
+    // var response = await user.login();
+
+    // if (response.success) {
+    //   Modular.to.pushReplacementNamed('/dashboard/');
+    // } else {
+    //   //implementar isso usando Bloc
+    //   // throw LoginError(message: response.error!.message);
+    // }
   }
 }
