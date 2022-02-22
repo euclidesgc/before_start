@@ -1,7 +1,7 @@
 import 'package:before_start/modules/home_module/domain/entities/credentials_entity.dart';
 import 'package:before_start/modules/home_module/domain/entities/user_entity.dart';
 import 'package:before_start/modules/home_module/domain/repositories/i_login_repository.dart';
-import 'package:before_start/modules/utils/failures.dart';
+import 'package:flutter/foundation.dart';
 
 class LoginUsecase {
   final ILoginRepository repository;
@@ -12,7 +12,8 @@ class LoginUsecase {
     try {
       return await repository.login(credentials: credentials);
     } catch (e) {
-      throw ServerFailure();
+      debugPrint("$e");
+      throw Exception();
     }
   }
 }

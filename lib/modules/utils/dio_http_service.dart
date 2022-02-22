@@ -6,16 +6,24 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'i_http_service.dart';
 
 class DioHttpService implements IHttpService {
-  final Dio _dio = Dio();
-
   final String keyApplicationId = dotenv.env['keyApplicationId']!;
   final String keyClientKey = dotenv.env['keyClientKey']!;
   final String baseUrl = dotenv.env['keyParseServerUrl']!;
 
+  final _dio = Dio();
+
   DioHttpService({List<Interceptor> interceptors = const []}) {
-    //Add Default headers
-    _dio.options.headers.addAll({"x-parse-application-id": keyApplicationId, "x-parse-rest-api-key": keyClientKey});
-    _dio.options.baseUrl = baseUrl;
+    _dio.options = BaseOptions(
+      baseUrl: baseUrl,
+      connectTimeout: 5000,
+      receiveTimeout: 100000,
+      // Default headers
+      headers: {
+        'x-parse-application-id': keyApplicationId,
+        'x-parse-rest-api-key': keyClientKey,
+      },
+      contentType: Headers.jsonContentType,
+    );
     initInterceptors();
   }
 

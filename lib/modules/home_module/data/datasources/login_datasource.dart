@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 import '../../../utils/dio_http_service.dart';
 import '../models/credentials_model.dart';
 import '../models/user_model.dart';
@@ -17,7 +19,8 @@ class LoginDatasource implements ILoginDatasource {
 
       return UserModel.fromJson(response.data);
     } catch (e) {
-      throw Exception(e.toString());
+      debugPrint("$e");
+      throw Exception();
     }
   }
 }
