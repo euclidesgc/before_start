@@ -1,6 +1,4 @@
 import 'package:before_start/modules/design_system/design_sistem.dart';
-import 'package:before_start/modules/home_module/domain/entities/user_entity.dart';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -14,9 +12,6 @@ class DashboardPage extends StatefulWidget {
 }
 
 class _DashboardPageState extends ModularState<DashboardPage, DashboardController> {
-  String nome = "";
-  var numero = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,6 +39,14 @@ class _DashboardPageState extends ModularState<DashboardPage, DashboardControlle
                         color: AppColors.onPrimary,
                       ),
                     ),
+                    Text(
+                      controller.commomStore.user.username,
+                      textAlign: TextAlign.center,
+                      style: const TextStyle(
+                        fontSize: 18,
+                        color: AppColors.onPrimary,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -62,18 +65,7 @@ class _DashboardPageState extends ModularState<DashboardPage, DashboardControlle
               ),
               ListTile(
                 title: const Text('Logout'),
-                onTap: () {
-                  controller.logoutUsecase(
-                      user: UserEntity(
-                          objectId: "objectId",
-                          username: "euclidesgc",
-                          createdAt: DateTime(2022, 02, 22),
-                          updatedAt: DateTime(2022, 02, 22),
-                          emailVerified: true,
-                          sessionToken: "r:54a70ffc5c33b4e99444d2b1379efe3a"));
-                  Navigator.pop(context);
-                  Modular.to.pushNamedAndRemoveUntil("/home", ModalRoute.withName('/'));
-                },
+                onTap: () => controller.logout(),
               ),
             ],
           ),

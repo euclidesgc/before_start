@@ -10,7 +10,7 @@ class LogoutUsecase {
 
   Future call({required UserEntity user}) async {
     try {
-      //Obter o usuário atual
+      // Obter o usuário atual
       // Precisa do Session Token
       return await repository.logout(user: user);
     } catch (e) {

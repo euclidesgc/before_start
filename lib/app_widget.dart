@@ -7,8 +7,10 @@ class AppWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
       title: 'Mentoria Before Start',
+      routeInformationParser: Modular.routeInformationParser,
+      routerDelegate: Modular.routerDelegate,
       theme: ThemeData(
         colorScheme: const ColorScheme(
           brightness: Brightness.light,
@@ -25,6 +27,6 @@ class AppWidget extends StatelessWidget {
         ),
         primarySwatch: Colors.amber,
       ),
-    ).modular(); //added by extension
+    ); //added by extension
   }
 }

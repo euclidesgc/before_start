@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 
-import '../../../utils/i_http_service.dart';
+import '../../../common_module/http_service/i_http_service.dart';
 import '../models/credentials_model.dart';
 import '../models/user_model.dart';
 import 'i_home_datasource.dart';

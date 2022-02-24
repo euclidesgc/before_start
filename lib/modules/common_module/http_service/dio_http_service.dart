@@ -77,6 +77,12 @@ class DioHttpService implements IHttpService {
           // implementar tabém para outros tipos de erros
           throw UnimplementedError();
         }
+        if (e.response!.data["code"] == 101) {
+          // retornar o tratamento padrão para não autorizado
+          // implementar tabém para outros tipos de erros
+          debugPrint("🔴 Login ou senha inválida");
+          throw UnimplementedError();
+        }
         return e.response;
       }
     } catch (e) {

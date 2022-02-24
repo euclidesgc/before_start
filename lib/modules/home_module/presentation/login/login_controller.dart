@@ -14,7 +14,7 @@ class LoginController {
 
     try {
       final UserEntity user = await loginUsecase(credentials: userCredentials);
-      print(user.sessionToken);
+
       Modular.to.pushReplacementNamed('/dashboard/');
     } catch (e) {
       throw Exception();
