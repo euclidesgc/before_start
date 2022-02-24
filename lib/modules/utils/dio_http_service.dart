@@ -1,28 +1,24 @@
-import 'dart:io';
-
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 import 'i_http_service.dart';
 
 class DioHttpService implements IHttpService {
-  final String keyApplicationId = dotenv.env['keyApplicationId']!;
-  final String keyClientKey = dotenv.env['keyClientKey']!;
-  final String baseUrl = dotenv.env['keyParseServerUrl']!;
+  final String applicationId = dotenv.env['applicationId']!;
+  final String restApiKey = dotenv.env['restApiKey']!;
+  final String baseUrl = dotenv.env['baseUrl']!;
 
   final _dio = Dio();
 
   DioHttpService({List<Interceptor> interceptors = const []}) {
     _dio.options = BaseOptions(
-      baseUrl: baseUrl,
-      connectTimeout: 5000,
-      receiveTimeout: 100000,
+      baseUrl: baseUrl, connectTimeout: 5000, receiveTimeout: 100000,
       // Default headers
       headers: {
-        'x-parse-application-id': keyApplicationId,
-        'x-parse-rest-api-key': keyClientKey,
+        'x-parse-application-id': applicationId,
+        'x-parse-rest-api-key': restApiKey,
       },
-      contentType: Headers.jsonContentType,
     );
     initInterceptors();
   }
@@ -44,107 +40,47 @@ class DioHttpService implements IHttpService {
   }
 
   @override
-  Future<dynamic> get(String path, Map<String, dynamic>? queryParameters, Map<String, String>? customHeaders) async {
-    Options? options;
-
-    if (customHeaders != null) options = Options(headers: customHeaders);
-
-    try {
-      final response = await _dio.get(path, queryParameters: queryParameters, options: options);
-
-      if (response.statusCode == 401) {
-        throw Exception("Unauthorized");
-      } else if (response.statusCode == 500) {
-        throw Exception("Server Error");
-      } else {
-        return response;
-      }
-    } on SocketException catch (e) {
-      throw Exception("Not Internet Connection\n$e");
-    } on FormatException catch (e) {
-      throw Exception("Bad response format\n$e");
-    } on DioError catch (e) {
-      throw Exception(e);
-    } catch (e) {
-      throw Exception("Something wen't wrong\n$e");
-    }
-  }
-
-  @override
-  Future<dynamic> post(String path, {Map<String, dynamic>? data, Map<String, dynamic>? queryParameters, Map<String, String>? customHeaders}) async {
+  Future<dynamic> request(
+      {required Method method,
+      required String path,
+      Map<String, dynamic>? data,
+      Map<String, dynamic>? queryParameters,
+      Map<String, String>? customHeaders}) async {
     Options? options;
     if (customHeaders != null) options = Options(headers: customHeaders);
 
     try {
-      final response = await _dio.post(path, data: data, queryParameters: queryParameters, options: options);
-
-      if (response.statusCode == 401) {
-        throw Exception("Unauthorized");
-      } else if (response.statusCode == 500) {
-        throw Exception("Server Error");
-      } else {
-        return response;
+      switch (method) {
+        case Method.GET:
+          final response = await _dio.get(path, queryParameters: queryParameters, options: options);
+          return response;
+        case Method.POST:
+          final response = await _dio.post(path, data: data, queryParameters: queryParameters, options: options);
+          return response;
+        case Method.PUT:
+          final response = await _dio.put(path, data: data, queryParameters: queryParameters, options: options);
+          return response;
+        case Method.DELETE:
+          final response = await _dio.delete(path, data: data, queryParameters: queryParameters, options: options);
+          return response;
       }
-    } on SocketException catch (e) {
-      throw Exception("Not Internet Connection\n$e");
-    } on FormatException catch (e) {
-      throw Exception("Bad response format\n$e");
     } on DioError catch (e) {
-      throw Exception(e);
-    } catch (e) {
-      throw Exception("Something wen't wrong\n$e");
-    }
-  }
-
-  @override
-  Future<dynamic> put(String path, {Map<String, dynamic>? data, Map<String, dynamic>? queryParameters, Map<String, String>? customHeaders}) async {
-    Options? options;
-    if (customHeaders != null) options = Options(headers: customHeaders);
-
-    try {
-      final response = await _dio.put(path, data: data, queryParameters: queryParameters, options: options);
-
-      if (response.statusCode == 401) {
-        throw Exception("Unauthorized");
-      } else if (response.statusCode == 500) {
-        throw Exception("Server Error");
-      } else {
-        return response;
+      // The request was made and the server responded with a status code
+      // that falls out of the range of 2xx and is also not 304.
+      if (e.type == DioErrorType.connectTimeout) {
+        debugPrint("Timeout!");
       }
-    } on SocketException catch (e) {
-      throw Exception("Not Internet Connection\n$e");
-    } on FormatException catch (e) {
-      throw Exception("Bad response format\n$e");
-    } on DioError catch (e) {
-      throw Exception(e);
-    } catch (e) {
-      throw Exception("Something wen't wrong\n$e");
-    }
-  }
-
-  @override
-  Future<dynamic> delete(String path, {dynamic data, Map<String, dynamic>? queryParameters, Map<String, String>? customHeaders}) async {
-    Options? options;
-    if (customHeaders != null) options = Options(headers: customHeaders);
-
-    try {
-      final response = await _dio.delete(path, data: data, queryParameters: queryParameters, options: options);
-
-      if (response.statusCode == 401) {
-        throw Exception("Unauthorized");
-      } else if (response.statusCode == 500) {
-        throw Exception("Server Error");
-      } else {
-        return response;
+      if (e.type == DioErrorType.response) {
+        debugPrint("🔴 Response.code out of range 2xx : ${e.response!.statusCode}");
+        if (e.response!.statusCode == 401) {
+          // retornar o tratamento padrão para não autorizado
+          // implementar tabém para outros tipos de erros
+          throw UnimplementedError();
+        }
+        return e.response;
       }
-    } on SocketException catch (e) {
-      throw Exception("Not Internet Connection\n$e");
-    } on FormatException catch (e) {
-      throw Exception("Bad response format\n$e");
-    } on DioError catch (e) {
-      throw Exception(e);
     } catch (e) {
-      throw Exception("Something wen't wrong\n$e");
+      throw UnimplementedError();
     }
   }
 }

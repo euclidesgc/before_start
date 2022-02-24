@@ -1,10 +1,13 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'dashboard_page.dart';
+import 'presentation/dashboard_controller.dart';
+import 'presentation/dashboard_page.dart';
 
 class DashboardModule extends Module {
   @override
-  List<Bind> get binds => [];
+  List<Bind> get binds => [
+        Bind.singleton((i) => DashboardController()),
+      ];
 
   @override
   List<ModularRoute> get routes => [

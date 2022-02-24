@@ -9,11 +9,11 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load(fileName: ".env");
 
-  final String keyApplicationId = dotenv.env['keyApplicationId']!;
-  final String keyClientKey = dotenv.env['keyClientKey']!;
-  final String keyParseServerUrl = dotenv.env['keyParseServerUrl']!;
+  final String applicationId = dotenv.env['applicationId']!;
+  final String restApiKey = dotenv.env['restApiKey']!;
+  final String baseUrl = dotenv.env['baseUrl']!;
 
-  await Parse().initialize(keyApplicationId, keyParseServerUrl, clientKey: keyClientKey, autoSendSessionId: true);
+  await Parse().initialize(applicationId, baseUrl, clientKey: restApiKey, autoSendSessionId: true);
 
   return runApp(
     ModularApp(

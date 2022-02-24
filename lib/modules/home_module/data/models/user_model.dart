@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:before_start/modules/home_module/domain/entities/user_entity.dart';
+
 UserModel userModelFromJson(String str) => UserModel.fromJson(json.decode(str));
 
 String userModelToJson(UserModel data) => json.encode(data.toJson());
@@ -45,6 +47,15 @@ class UserModel {
         updatedAt: DateTime.parse(json["updatedAt"]),
         emailVerified: json["emailVerified"],
         sessionToken: json["sessionToken"],
+      );
+
+  UserEntity toUserEntity() => UserEntity(
+        objectId: objectId,
+        username: username,
+        createdAt: createdAt,
+        updatedAt: updatedAt,
+        emailVerified: emailVerified,
+        sessionToken: sessionToken,
       );
 
   Map<String, dynamic> toJson() => {

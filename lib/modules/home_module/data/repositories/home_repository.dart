@@ -1,15 +1,15 @@
 import 'package:before_start/modules/home_module/data/models/credentials_model.dart';
 import 'package:before_start/modules/home_module/domain/entities/credentials_entity.dart';
-import 'package:before_start/modules/home_module/domain/repositories/i_login_repository.dart';
+import 'package:before_start/modules/home_module/domain/repositories/i_home_repository.dart';
 import 'package:before_start/modules/utils/failures.dart';
 
 import '../../domain/entities/user_entity.dart';
-import '../datasources/i_login_datasource.dart';
+import '../datasources/i_home_datasource.dart';
 
-class LoginRepository implements ILoginRepository {
-  final ILoginDatasource datasource;
+class HomeRepository implements IHomeRepository {
+  final IHomeDatasource datasource;
 
-  LoginRepository({required this.datasource});
+  HomeRepository({required this.datasource});
 
   @override
   Future<UserEntity> login({required CredentialsEntity credentials}) async {
@@ -27,6 +27,15 @@ class LoginRepository implements ILoginRepository {
         sessionToken: userModel.sessionToken,
       );
       return userEntity;
+    } catch (e) {
+      throw ServerFailure();
+    }
+  }
+
+  @override
+  Future logout({required UserEntity user}) async {
+    try {
+      await datasource.logout(userModel: user.toUserModel());
     } catch (e) {
       throw ServerFailure();
     }

@@ -3,7 +3,7 @@ import 'package:before_start/modules/utils/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
 
-import '../../design_system/design_sistem.dart';
+import '../../../design_system/design_sistem.dart';
 
 class ResetPasswordPage extends StatefulWidget {
   const ResetPasswordPage({Key? key}) : super(key: key);

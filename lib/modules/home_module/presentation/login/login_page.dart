@@ -1,8 +1,8 @@
-import 'package:before_start/modules/home_module/login/login_controller.dart';
+import 'package:before_start/modules/home_module/presentation/login/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../design_system/design_sistem.dart';
+import '../../../design_system/design_sistem.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
