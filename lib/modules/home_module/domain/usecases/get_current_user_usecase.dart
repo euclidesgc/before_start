@@ -17,9 +17,7 @@ class GetCurrentUserUsecase {
 
   GetCurrentUserUsecase(this.repository);
 
-  // Future<UserEntity> call() async{
-  // try{
-  //   return await repository.getCurrentUser
-  // }
+  // Future<UserEntity> call() async {
+  // return await repository.getCurrentUser
   // }
 }

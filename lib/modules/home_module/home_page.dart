@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../design_system/design_sistem.dart';
@@ -36,6 +37,15 @@ class _HomePageState extends State<HomePage> {
             AppButton.secondary(
               label: 'Registre-se',
               onPressed: () => Modular.to.pushNamed('/register_page'),
+            ),
+            const SizedBox(height: 16),
+            AppButton.secondary(
+              label: 'TESTE',
+              onPressed: () async {
+                EasyLoading.show(status: "Carregando...", maskType: EasyLoadingMaskType.custom);
+                await Future.delayed(const Duration(seconds: 3));
+                EasyLoading.dismiss();
+              },
             ),
           ],
         ),
