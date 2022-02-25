@@ -14,7 +14,7 @@ class LoginController {
     CredentialsEntity userCredentials = CredentialsEntity(username: username.trim(), password: password.trim());
 
     try {
-      EasyLoading.show(status: 'Carregando...', maskType: EasyLoadingMaskType.black);
+      EasyLoading.show(status: 'Aguarde ...', maskType: EasyLoadingMaskType.black);
       final UserEntity user = await loginUsecase(credentials: userCredentials);
 
       Modular.to.pushReplacementNamed('/dashboard/');

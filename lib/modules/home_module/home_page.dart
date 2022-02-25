@@ -38,15 +38,6 @@ class _HomePageState extends State<HomePage> {
               label: 'Registre-se',
               onPressed: () => Modular.to.pushNamed('/register_page'),
             ),
-            const SizedBox(height: 16),
-            AppButton.secondary(
-              label: 'TESTE',
-              onPressed: () async {
-                EasyLoading.show(status: "Carregando...", maskType: EasyLoadingMaskType.custom);
-                await Future.delayed(const Duration(seconds: 3));
-                EasyLoading.dismiss();
-              },
-            ),
           ],
         ),
       ),
