@@ -1,0 +1,2582 @@
+{
+  "swagger" : "2.0",
+  "info" : {
+    "title" : "Before Start app API",
+    "description": "You can also [Download your Back4App app's swagger.json](https://dashboard.back4app.com/swagger/9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc/file) and use it on [Postman](https://www.getpostman.com/)"
+  },
+  "host" : "mentoriabeforestart.b4a.io",
+  "schemes": [
+    "https"
+  ],
+  "paths" : {
+      "/classes/B4aCustomField" : {
+        "post" : {
+          "tags": [ "B4aCustomField" ],
+          "summary": "B4aCustomField",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+            "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "objectClassFieldName": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "objectClassName": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "isRequired": {
+                    "type": "Boolean",
+                    "example": true
+                  },
+                  "title": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "isTableHidden": {
+                    "type": "Boolean",
+                    "example": true
+                  },
+                  "referencesLinkTitle": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "inputMask": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "relevance": {
+                    "type": "Number",
+                    "example": 1
+                  },
+                  "cssClassName": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "referencesLinkText": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "referenceTitleField": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "defaultValue": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "subType": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "options": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "isFormHidden": {
+                    "type": "String",
+                    "example": "A string"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "get" : {
+          "tags": [ "B4aCustomField" ],
+          "summary": "B4aCustomField",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+              "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name": "where",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "x-example": "{ \"objectClassFieldName\": \"A string\", \"objectClassName\": \"A string\", \"isRequired\": true, \"title\": \"A string\", \"isTableHidden\": true, \"referencesLinkTitle\": \"A string\", \"inputMask\": \"A string\", \"relevance\": 1, \"cssClassName\": \"A string\", \"referencesLinkText\": \"A string\", \"referenceTitleField\": \"A string\", \"defaultValue\": \"A string\", \"subType\": \"A string\", \"options\": \"A string\", \"isFormHidden\": \"A string\" }"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "/classes/B4aCustomField/{objectId}" : {
+        "put" : {
+          "tags": [ "B4aCustomField" ],
+          "summary": "B4aCustomField/{objectId}",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+              "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name" : "objectId",
+              "in" : "path",
+              "required" : true,
+              "type" : "string"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "objectClassFieldName": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "objectClassName": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "isRequired": {
+                    "type": "Boolean",
+                    "example": true
+                  },
+                  "title": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "isTableHidden": {
+                    "type": "Boolean",
+                    "example": true
+                  },
+                  "referencesLinkTitle": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "inputMask": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "relevance": {
+                    "type": "Number",
+                    "example": 1
+                  },
+                  "cssClassName": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "referencesLinkText": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "referenceTitleField": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "defaultValue": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "subType": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "options": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "isFormHidden": {
+                    "type": "String",
+                    "example": "A string"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "delete" : {
+          "tags": [ "B4aCustomField" ],
+          "summary": "B4aCustomField/{objectId}",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+              "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name" : "objectId",
+              "in" : "path",
+              "required" : true,
+              "type" : "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "/classes/B4aSetting" : {
+        "post" : {
+          "tags": [ "B4aSetting" ],
+          "summary": "B4aSetting",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+            "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "key": {
+                    "type": "String",
+                    "example": "A string"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "get" : {
+          "tags": [ "B4aSetting" ],
+          "summary": "B4aSetting",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+              "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name": "where",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "x-example": "{ \"value\": \"A string\", \"key\": \"A string\" }"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "/classes/B4aSetting/{objectId}" : {
+        "put" : {
+          "tags": [ "B4aSetting" ],
+          "summary": "B4aSetting/{objectId}",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+              "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name" : "objectId",
+              "in" : "path",
+              "required" : true,
+              "type" : "string"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "value": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "key": {
+                    "type": "String",
+                    "example": "A string"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "delete" : {
+          "tags": [ "B4aSetting" ],
+          "summary": "B4aSetting/{objectId}",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+              "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name" : "objectId",
+              "in" : "path",
+              "required" : true,
+              "type" : "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "/classes/B4aMenuItem" : {
+        "post" : {
+          "tags": [ "B4aMenuItem" ],
+          "summary": "B4aMenuItem",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+            "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "objectClassName": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "relevance": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "isHidden": {
+                    "type": "Boolean",
+                    "example": true
+                  },
+                  "addFormTitle": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "editFormTitle": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "isReadOnly": {
+                    "type": "Boolean",
+                    "example": true
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "get" : {
+          "tags": [ "B4aMenuItem" ],
+          "summary": "B4aMenuItem",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+              "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name": "where",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "x-example": "{ \"title\": \"A string\", \"objectClassName\": \"A string\", \"relevance\": \"A string\", \"isHidden\": true, \"addFormTitle\": \"A string\", \"editFormTitle\": \"A string\", \"isReadOnly\": true }"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "/classes/B4aMenuItem/{objectId}" : {
+        "put" : {
+          "tags": [ "B4aMenuItem" ],
+          "summary": "B4aMenuItem/{objectId}",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+              "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name" : "objectId",
+              "in" : "path",
+              "required" : true,
+              "type" : "string"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "objectClassName": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "relevance": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "isHidden": {
+                    "type": "Boolean",
+                    "example": true
+                  },
+                  "addFormTitle": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "editFormTitle": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "isReadOnly": {
+                    "type": "Boolean",
+                    "example": true
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "delete" : {
+          "tags": [ "B4aMenuItem" ],
+          "summary": "B4aMenuItem/{objectId}",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+              "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name" : "objectId",
+              "in" : "path",
+              "required" : true,
+              "type" : "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "/classes/Etapa" : {
+        "post" : {
+          "tags": [ "Etapa" ],
+          "summary": "Etapa",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+            "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ordem": {
+                    "type": "Number",
+                    "example": 1
+                  },
+                  "titulo": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "descricao": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "objetivo": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "url_video_descritivo": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "materiais": {
+                    "type": "Relation",
+                    "example": { "__type": "Relation", "className": "Material" }
+                  },
+                  "fase": {
+                    "type": "Relation",
+                    "example": { "__type": "Relation", "className": "Fase" }
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "get" : {
+          "tags": [ "Etapa" ],
+          "summary": "Etapa",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+              "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name": "where",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "x-example": "{ \"ordem\": 1, \"titulo\": \"A string\", \"descricao\": \"A string\", \"objetivo\": \"A string\", \"url_video_descritivo\": \"A string\", \"materiais\": { \"__type\": \"Relation\", \"className\": \"Material\" }, \"fase\": { \"__type\": \"Relation\", \"className\": \"Fase\" } }"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "/classes/Etapa/{objectId}" : {
+        "put" : {
+          "tags": [ "Etapa" ],
+          "summary": "Etapa/{objectId}",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+              "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name" : "objectId",
+              "in" : "path",
+              "required" : true,
+              "type" : "string"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "ordem": {
+                    "type": "Number",
+                    "example": 1
+                  },
+                  "titulo": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "descricao": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "objetivo": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "url_video_descritivo": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "materiais": {
+                    "type": "Relation",
+                    "example": { "__type": "Relation", "className": "Material" }
+                  },
+                  "fase": {
+                    "type": "Relation",
+                    "example": { "__type": "Relation", "className": "Fase" }
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "delete" : {
+          "tags": [ "Etapa" ],
+          "summary": "Etapa/{objectId}",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+              "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name" : "objectId",
+              "in" : "path",
+              "required" : true,
+              "type" : "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "/classes/Roadmap" : {
+        "post" : {
+          "tags": [ "Roadmap" ],
+          "summary": "Roadmap",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+            "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "titulo": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "etapas": {
+                    "type": "Relation",
+                    "example": { "__type": "Relation", "className": "Etapa" }
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "get" : {
+          "tags": [ "Roadmap" ],
+          "summary": "Roadmap",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+              "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name": "where",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "x-example": "{ \"titulo\": \"A string\", \"etapas\": { \"__type\": \"Relation\", \"className\": \"Etapa\" } }"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "/classes/Roadmap/{objectId}" : {
+        "put" : {
+          "tags": [ "Roadmap" ],
+          "summary": "Roadmap/{objectId}",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+              "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name" : "objectId",
+              "in" : "path",
+              "required" : true,
+              "type" : "string"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "titulo": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "etapas": {
+                    "type": "Relation",
+                    "example": { "__type": "Relation", "className": "Etapa" }
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "delete" : {
+          "tags": [ "Roadmap" ],
+          "summary": "Roadmap/{objectId}",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+              "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name" : "objectId",
+              "in" : "path",
+              "required" : true,
+              "type" : "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "/classes/Material" : {
+        "post" : {
+          "tags": [ "Material" ],
+          "summary": "Material",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+            "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "titulo": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "link": {
+                    "type": "String",
+                    "example": "A string"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "get" : {
+          "tags": [ "Material" ],
+          "summary": "Material",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+              "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name": "where",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "x-example": "{ \"titulo\": \"A string\", \"link\": \"A string\" }"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "/classes/Material/{objectId}" : {
+        "put" : {
+          "tags": [ "Material" ],
+          "summary": "Material/{objectId}",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+              "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name" : "objectId",
+              "in" : "path",
+              "required" : true,
+              "type" : "string"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "titulo": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "link": {
+                    "type": "String",
+                    "example": "A string"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "delete" : {
+          "tags": [ "Material" ],
+          "summary": "Material/{objectId}",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+              "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name" : "objectId",
+              "in" : "path",
+              "required" : true,
+              "type" : "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "/classes/Progresso" : {
+        "post" : {
+          "tags": [ "Progresso" ],
+          "summary": "Progresso",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+            "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user": {
+                    "type": "Relation",
+                    "example": { "__type": "Relation", "className": "_User" }
+                  },
+                  "etapa": {
+                    "type": "Relation",
+                    "example": { "__type": "Relation", "className": "Etapa" }
+                  },
+                  "concluido": {
+                    "type": "Boolean",
+                    "example": true
+                  },
+                  "verificado": {
+                    "type": "Boolean",
+                    "example": true
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "get" : {
+          "tags": [ "Progresso" ],
+          "summary": "Progresso",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+              "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name": "where",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "x-example": "{ \"user\": { \"__type\": \"Relation\", \"className\": \"_User\" }, \"etapa\": { \"__type\": \"Relation\", \"className\": \"Etapa\" }, \"concluido\": true, \"verificado\": true }"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "/classes/Progresso/{objectId}" : {
+        "put" : {
+          "tags": [ "Progresso" ],
+          "summary": "Progresso/{objectId}",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+              "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name" : "objectId",
+              "in" : "path",
+              "required" : true,
+              "type" : "string"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user": {
+                    "type": "Relation",
+                    "example": { "__type": "Relation", "className": "_User" }
+                  },
+                  "etapa": {
+                    "type": "Relation",
+                    "example": { "__type": "Relation", "className": "Etapa" }
+                  },
+                  "concluido": {
+                    "type": "Boolean",
+                    "example": true
+                  },
+                  "verificado": {
+                    "type": "Boolean",
+                    "example": true
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "delete" : {
+          "tags": [ "Progresso" ],
+          "summary": "Progresso/{objectId}",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+              "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name" : "objectId",
+              "in" : "path",
+              "required" : true,
+              "type" : "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "/classes/Perfil" : {
+        "post" : {
+          "tags": [ "Perfil" ],
+          "summary": "Perfil",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+            "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "nascimento": {
+                    "type": "Date",
+                    "example": { "__type": "Date", "iso": "2018-11-06T18:02:52.249Z" }
+                  },
+                  "genero": {
+                    "type": "Array",
+                    "example": [ 1, "a string" ]
+                  },
+                  "profissao": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "historia": {
+                    "type": "String",
+                    "example": "A string"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "get" : {
+          "tags": [ "Perfil" ],
+          "summary": "Perfil",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+              "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name": "where",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "x-example": "{ \"nome\": \"A string\", \"nascimento\": { \"__type\": \"Date\", \"iso\": \"2018-11-06T18:02:52.249Z\" }, \"genero\": [ 1, \"a string\" ], \"profissao\": \"A string\", \"historia\": \"A string\" }"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "/classes/Perfil/{objectId}" : {
+        "put" : {
+          "tags": [ "Perfil" ],
+          "summary": "Perfil/{objectId}",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+              "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name" : "objectId",
+              "in" : "path",
+              "required" : true,
+              "type" : "string"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "nome": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "nascimento": {
+                    "type": "Date",
+                    "example": { "__type": "Date", "iso": "2018-11-06T18:02:52.249Z" }
+                  },
+                  "genero": {
+                    "type": "Array",
+                    "example": [ 1, "a string" ]
+                  },
+                  "profissao": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "historia": {
+                    "type": "String",
+                    "example": "A string"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "delete" : {
+          "tags": [ "Perfil" ],
+          "summary": "Perfil/{objectId}",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+              "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name" : "objectId",
+              "in" : "path",
+              "required" : true,
+              "type" : "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "/classes/Fase" : {
+        "post" : {
+          "tags": [ "Fase" ],
+          "summary": "Fase",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+            "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "titulo": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "descricao": {
+                    "type": "String",
+                    "example": "A string"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "get" : {
+          "tags": [ "Fase" ],
+          "summary": "Fase",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+              "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name": "where",
+              "in": "query",
+              "required": false,
+              "type": "string",
+              "x-example": "{ \"titulo\": \"A string\", \"descricao\": \"A string\" }"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+      "/classes/Fase/{objectId}" : {
+        "put" : {
+          "tags": [ "Fase" ],
+          "summary": "Fase/{objectId}",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+              "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name" : "objectId",
+              "in" : "path",
+              "required" : true,
+              "type" : "string"
+            },
+            {
+              "name": "body",
+              "in": "body",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "titulo": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "descricao": {
+                    "type": "String",
+                    "example": "A string"
+                  }
+                }
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        },
+        "delete" : {
+          "tags": [ "Fase" ],
+          "summary": "Fase/{objectId}",
+          "produces" : [ "application/json" ],
+          "parameters" : [
+            {
+              "name" : "X-Parse-Application-Id",
+              "in" : "header",
+              "description" : "Your Parse Application ID",
+              "required" : true,
+              "type" : "string",
+              "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+            },
+            {
+              "name" : "X-Parse-REST-API-Key",
+              "in" : "header",
+              "description" : "Your REST Key",
+              "required" : true,
+              "type" : "string",
+              "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+            },
+            {
+              "name" : "objectId",
+              "in" : "path",
+              "required" : true,
+              "type" : "string"
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "successful operation",
+              "content": "application/json",
+              "schema": {
+                "type": "object"
+              }
+            }
+          }
+        }
+      },
+    "/classes/{className}" : {
+      "post" : {
+        "tags": [ "- Objects API" ],
+        "summary": "Creating Objects",
+        "produces" : [ "application/json" ],
+        "parameters" : [
+          {
+            "name" : "X-Parse-Application-Id",
+            "in" : "header",
+          "description" : "Your Parse Application ID",
+            "required" : true,
+            "type" : "string",
+            "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+          },
+          {
+            "name" : "X-Parse-REST-API-Key",
+            "in" : "header",
+            "description" : "Your REST Key",
+            "required" : true,
+            "type" : "string",
+            "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+          },
+          {
+            "name": "className",
+            "in": "path",
+            "description": "Your class name",
+            "required": true,
+            "type": "string",
+            "default": "MyCustomClassName"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "myCustomKeyName": {
+                  "type": "string",
+                  "example": "myCustomKeyValue"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": "application/json",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "get" : {
+        "tags": [ "- Objects API" ],
+        "summary": "Reading Objects",
+        "produces" : [ "application/json" ],
+        "parameters" : [
+          {
+            "name" : "X-Parse-Application-Id",
+            "in" : "header",
+            "description" : "Your Parse Application ID",
+            "required" : true,
+            "type" : "string",
+            "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+          },
+          {
+            "name" : "X-Parse-REST-API-Key",
+            "in" : "header",
+            "description" : "Your REST Key",
+            "required" : true,
+            "type" : "string",
+            "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+          },
+          {
+            "name": "className",
+            "in": "path",
+            "description": "Your class name",
+            "required": true,
+            "type": "string",
+            "default": "MyCustomClassName"
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "required": false,
+            "type": "string",
+            "x-example": "{ \"myCustomKeyName1\": \"myCustomKeuValue1\", \"myCustomKeyName1\": \"myCustomKeuValue1\" }"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": "application/json",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/classes/{className}/{objectId}" : {
+      "put" : {
+        "tags": [ "- Objects API" ],
+        "summary": "Updating Objects",
+        "produces" : [ "application/json" ],
+        "parameters" : [
+          {
+            "name" : "X-Parse-Application-Id",
+            "in" : "header",
+            "description" : "Your Parse Application ID",
+            "required" : true,
+            "type" : "string",
+            "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+          },
+          {
+            "name" : "X-Parse-REST-API-Key",
+            "in" : "header",
+            "description" : "Your REST Key",
+            "required" : true,
+            "type" : "string",
+            "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+          },
+          {
+            "name": "className",
+            "in": "path",
+            "description": "Your class name",
+            "required": true,
+            "type": "string",
+            "default": "MyCustomClassName"
+          },
+          {
+            "name" : "objectId",
+            "in" : "path",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "myCustomKeyName": {
+                  "type": "string",
+                  "example": "myCustomKeyValue"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": "application/json",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags": [ "- Objects API" ],
+        "summary": "Deleting Objects",
+        "produces" : [ "application/json" ],
+        "parameters" : [
+          {
+            "name" : "X-Parse-Application-Id",
+            "in" : "header",
+            "description" : "Your Parse Application ID",
+            "required" : true,
+            "type" : "string",
+            "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+          },
+          {
+            "name" : "X-Parse-REST-API-Key",
+            "in" : "header",
+            "description" : "Your REST Key",
+            "required" : true,
+            "type" : "string",
+            "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+          },
+          {
+            "name": "className",
+            "in": "path",
+            "description": "Your class name",
+            "required": true,
+            "type": "string",
+            "default": "MyCustomClassName"
+          },
+          {
+            "name" : "objectId",
+            "in" : "path",
+            "required" : true,
+            "type" : "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": "application/json",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/users" : {
+      "post" : {
+        "tags": [ "Users" ],
+        "summary": "Signing Up",
+        "produces" : [ "application/json" ],
+        "parameters" : [
+          {
+            "name" : "X-Parse-Application-Id",
+            "in" : "header",
+          "description" : "Your Parse Application ID",
+            "required" : true,
+            "type" : "string",
+            "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+          },
+          {
+            "name" : "X-Parse-REST-API-Key",
+            "in" : "header",
+            "description" : "Your REST Key",
+            "required" : true,
+            "type" : "string",
+            "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+          },
+          {
+            "name" : "X-Parse-Revocable-Session",
+            "in" : "header",
+            "description" : "Revocable session value",
+            "required" : true,
+            "type" : "number",
+            "default" : 1
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                  "username": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "email": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                  "Roadmap": {
+                    "type": "Relation",
+                    "example": { "__type": "Relation", "className": "Roadmap" }
+                  },
+                  "perfil": {
+                    "type": "Relation",
+                    "example": { "__type": "Relation", "className": "Perfil" }
+                  },
+                  "telefone": {
+                    "type": "String",
+                    "example": "A string"
+                  },
+                "password": {
+                  "type": "string",
+                  "example": "#Password123"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": "application/json",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/login" : {
+      "get" : {
+        "tags": [ "Users" ],
+        "summary": "Logging In",
+        "produces" : [ "application/json" ],
+        "parameters" : [
+          {
+            "name" : "X-Parse-Application-Id",
+            "in" : "header",
+            "description" : "Your Parse Application ID",
+            "required" : true,
+            "type" : "string",
+            "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+          },
+          {
+            "name" : "X-Parse-REST-API-Key",
+            "in" : "header",
+            "description" : "Your REST Key",
+            "required" : true,
+            "type" : "string",
+            "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+          },
+          {
+            "name" : "X-Parse-Revocable-Session",
+            "in" : "header",
+            "description" : "Revocable session value",
+            "required" : true,
+            "type" : "number",
+            "default" : 1
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "x-example": "<USERNAME>"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "required": true,
+            "type": "string",
+            "x-example": "<PASSWORD>"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": "application/json",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/verificationEmailRequest" : {
+      "post" : {
+        "tags": [ "Users" ],
+        "summary": "Verifying Email",
+        "produces" : [ "application/json" ],
+        "parameters" : [
+          {
+            "name" : "X-Parse-Application-Id",
+            "in" : "header",
+            "description" : "Your Parse Application ID",
+            "required" : true,
+            "type" : "string",
+            "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+          },
+          {
+            "name" : "X-Parse-REST-API-Key",
+            "in" : "header",
+            "description" : "Your REST Key",
+            "required" : true,
+            "type" : "string",
+            "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "email@example.com"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": "application/json",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/requestPasswordReset" : {
+      "post" : {
+        "tags": [ "Users" ],
+        "summary": "Requesting Password Reset",
+        "produces" : [ "application/json" ],
+        "parameters" : [
+          {
+            "name" : "X-Parse-Application-Id",
+            "in" : "header",
+            "description" : "Your Parse Application ID",
+            "required" : true,
+            "type" : "string",
+            "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+          },
+          {
+            "name" : "X-Parse-REST-API-Key",
+            "in" : "header",
+            "description" : "Your REST Key",
+            "required" : true,
+            "type" : "string",
+            "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "email@example.com"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": "application/json",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/users/me" : {
+      "get" : {
+        "tags": [ "Users" ],
+        "summary": "Retrieving Current User",
+        "produces" : [ "application/json" ],
+        "parameters" : [
+          {
+            "name" : "X-Parse-Application-Id",
+            "in" : "header",
+            "description" : "Your Parse Application ID",
+            "required" : true,
+            "type" : "string",
+            "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+          },
+          {
+            "name" : "X-Parse-REST-API-Key",
+            "in" : "header",
+            "description" : "Your REST Key",
+            "required" : true,
+            "type" : "string",
+            "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+          },
+          {
+            "name" : "X-Parse-Session-Token",
+            "in" : "header",
+            "description" : "The user's session token",
+            "required" : true,
+            "type" : "string",
+            "default" : "<SESSION_TOKEN>"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": "application/json",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    },
+    "/users/{objectId}" : {
+      "get" : {
+        "tags": [ "Users" ],
+        "summary": "Retrieving Users",
+        "produces" : [ "application/json" ],
+        "parameters" : [
+          {
+            "name" : "X-Parse-Application-Id",
+            "in" : "header",
+            "description" : "Your Parse Application ID",
+            "required" : true,
+            "type" : "string",
+            "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+          },
+          {
+            "name" : "X-Parse-REST-API-Key",
+            "in" : "header",
+            "description" : "Your REST Key",
+            "required" : true,
+            "type" : "string",
+            "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+          },
+          {
+            "name" : "objectId",
+            "in" : "path",
+            "required" : true,
+            "type" : "string",
+            "default": "<USER_OBJECT_ID>"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": "application/json",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "put" : {
+        "tags": [ "Users" ],
+        "summary": "Updating Users",
+        "produces" : [ "application/json" ],
+        "parameters" : [
+          {
+            "name" : "X-Parse-Application-Id",
+            "in" : "header",
+            "description" : "Your Parse Application ID",
+            "required" : true,
+            "type" : "string",
+            "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+          },
+          {
+            "name" : "X-Parse-REST-API-Key",
+            "in" : "header",
+            "description" : "Your REST Key",
+            "required" : true,
+            "type" : "string",
+            "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+          },
+          {
+            "name" : "objectId",
+            "in" : "path",
+            "required" : true,
+            "type" : "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "String",
+                  "example": "A string"
+                },
+                "email": {
+                  "type": "String",
+                  "example": "A string"
+                },
+                "Roadmap": {
+                  "type": "Relation",
+                  "example": { "__type": "Relation", "className": "Roadmap" }
+                },
+                "perfil": {
+                  "type": "Relation",
+                  "example": { "__type": "Relation", "className": "Perfil" }
+                },
+                "telefone": {
+                  "type": "String",
+                  "example": "A string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": "application/json",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      },
+      "delete" : {
+        "tags": [ "Users" ],
+        "summary": "Deleting Users",
+        "produces" : [ "application/json" ],
+        "parameters" : [
+          {
+            "name" : "X-Parse-Application-Id",
+            "in" : "header",
+            "description" : "Your Parse Application ID",
+            "required" : true,
+            "type" : "string",
+            "default" : "9k6Er3wTULxfBvjG12SXh4QbZ93cSMxrpXClMlpc"
+          },
+          {
+            "name" : "X-Parse-REST-API-Key",
+            "in" : "header",
+            "description" : "Your REST Key",
+            "required" : true,
+            "type" : "string",
+            "default" : "lCIuL0H29AyrDCloq6XLbu9fIpYPNyQMuao9vYNO"
+          },
+          {
+            "name" : "X-Parse-Session-Token",
+            "in" : "header",
+            "description" : "The user's session token",
+            "required" : true,
+            "type" : "string",
+            "default" : "<USER_SESSION_TOKEN>"
+          },
+          {
+            "name" : "objectId",
+            "in" : "path",
+            "required" : true,
+            "type" : "string",
+            "default": "<USER_OBJECT_ID>"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": "application/json",
+            "schema": {
+              "type": "object"
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags" : [
+    {
+      "name": "- Objects API",
+      "description": "The REST API to create a new class"
+    },
+    {
+      "name": "B4aCustomField",
+      "description": "The REST API for your B4aCustomField class"
+    },
+    {
+      "name": "B4aSetting",
+      "description": "The REST API for your B4aSetting class"
+    },
+    {
+      "name": "B4aMenuItem",
+      "description": "The REST API for your B4aMenuItem class"
+    },
+    {
+      "name": "Etapa",
+      "description": "The REST API for your Etapa class"
+    },
+    {
+      "name": "Roadmap",
+      "description": "The REST API for your Roadmap class"
+    },
+    {
+      "name": "Material",
+      "description": "The REST API for your Material class"
+    },
+    {
+      "name": "Progresso",
+      "description": "The REST API for your Progresso class"
+    },
+    {
+      "name": "Perfil",
+      "description": "The REST API for your Perfil class"
+    },
+    {
+      "name": "Fase",
+      "description": "The REST API for your Fase class"
+    },
+    {
+      "name": "Users",
+      "description": "The REST API for Parse User class"
+    }
+  ]
+}
