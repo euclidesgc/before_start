@@ -38,6 +38,7 @@ dependencies:
   parse_server_sdk_flutter: ^3.1.0
   flutter_dotenv: ^5.0.2
   dio: ^4.0.4
+  flutter_easyloading: ^3.0.3
 
 dev_dependencies:
   flutter_test:

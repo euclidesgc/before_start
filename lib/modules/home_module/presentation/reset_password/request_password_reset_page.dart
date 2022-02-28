@@ -1,19 +1,20 @@
+import 'package:before_start/modules/home_module/presentation/reset_password/request_password_reset_controller.dart';
 import 'package:before_start/modules/utils/formatters.dart';
 import 'package:before_start/modules/utils/validation.dart';
 import 'package:flutter/material.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 import '../../../design_system/design_sistem.dart';
 
-class ResetPasswordPage extends StatefulWidget {
-  const ResetPasswordPage({Key? key}) : super(key: key);
+class RequestPasswordResetPage extends StatefulWidget {
+  const RequestPasswordResetPage({Key? key}) : super(key: key);
 
   @override
-  _ResetPasswordPageState createState() => _ResetPasswordPageState();
+  _RequestPasswordResetPageState createState() => _RequestPasswordResetPageState();
 }
 
-class _ResetPasswordPageState extends State<ResetPasswordPage> {
-  final controllerEmail = TextEditingController();
+class _RequestPasswordResetPageState extends ModularState<RequestPasswordResetPage, RequestPasswordResetController> {
+  final emailTEC = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
 
@@ -49,7 +50,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                   children: [
                     AppTextField(
                       labelText: 'E-mail',
-                      controller: controllerEmail,
+                      controller: emailTEC,
                       keyboardType: TextInputType.emailAddress,
                       textCapitalization: TextCapitalization.none,
                       inputFormatters: [
@@ -71,7 +72,7 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
                         label: 'Enviar',
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
-                            doUserResetPassword();
+                            controller.requestPasswordReset(email: emailTEC.text.trim());
                           }
                         },
                       ),
@@ -82,20 +83,5 @@ class _ResetPasswordPageState extends State<ResetPasswordPage> {
             ],
           ),
         ));
-  }
-
-  void doUserResetPassword() async {
-    final ParseUser user = ParseUser(null, null, controllerEmail.text.trim());
-    final ParseResponse parseResponse = await user.requestPasswordReset();
-    if (parseResponse.success) {
-      AppDialog.showSuccess(
-          context: context,
-          message: 'Password reset instructions have been sent to email!',
-          onPressed: () {
-            Navigator.of(context).pop();
-          });
-    } else {
-      AppDialog.showError(context: context, message: parseResponse.error!.message);
-    }
   }
 }

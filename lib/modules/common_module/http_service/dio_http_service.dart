@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
+import '../../utils/exceptions.dart';
 import 'i_http_service.dart';
 
 class DioHttpService implements IHttpService {
@@ -46,8 +47,12 @@ class DioHttpService implements IHttpService {
       Map<String, dynamic>? data,
       Map<String, dynamic>? queryParameters,
       Map<String, String>? customHeaders}) async {
-    Options? options;
-    if (customHeaders != null) options = Options(headers: customHeaders);
+    Options? options = Options();
+
+    if (customHeaders != null) {
+      options.headers = _dio.options.headers;
+      options.headers!.addAll(customHeaders);
+    }
 
     try {
       switch (method) {
@@ -72,6 +77,12 @@ class DioHttpService implements IHttpService {
       }
       if (e.type == DioErrorType.response) {
         debugPrint("🔴 Response.code out of range 2xx : ${e.response!.statusCode}");
+        if (e.response!.statusCode == 400) {
+          // retornar o tratamento padrão para não autorizado
+          // implementar tabém para outros tipos de erros
+          debugPrint(e.response!.data["error"]);
+          throw BadRequestException(message: e.response!.data["error"]);
+        }
         if (e.response!.statusCode == 401) {
           // retornar o tratamento padrão para não autorizado
           // implementar tabém para outros tipos de erros

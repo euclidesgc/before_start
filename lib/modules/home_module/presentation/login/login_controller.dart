@@ -1,23 +1,32 @@
 import 'package:before_start/modules/home_module/domain/usecases/login_usecase.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../utils/exceptions.dart';
 import '../../domain/entities/credentials_entity.dart';
-import '../../domain/entities/user_entity.dart';
 
 class LoginController {
-  final LoginUsecase loginUsecase = Modular.get();
+  final LoginUsecase _loginUsecase;
 
-  LoginController();
+  LoginController(this._loginUsecase);
 
   void efetuarLogin({required String username, required String password}) async {
     CredentialsEntity userCredentials = CredentialsEntity(username: username.trim(), password: password.trim());
 
     try {
-      final UserEntity user = await loginUsecase(credentials: userCredentials);
+      EasyLoading.show(status: 'Aguarde ...', maskType: EasyLoadingMaskType.black);
+      await _loginUsecase(credentials: userCredentials);
 
       Modular.to.pushReplacementNamed('/dashboard/');
+    } on Exception catch (e) {
+      if (e is BadRequestException) {
+        EasyLoading.showError(e.message!, dismissOnTap: true, duration: const Duration(seconds: 5), maskType: EasyLoadingMaskType.black);
+        Modular.to.pushNamed('/verification_email_request_page');
+      }
     } catch (e) {
-      throw Exception();
+      EasyLoading.showError("Erro inesperado!", dismissOnTap: true, duration: const Duration(seconds: 5), maskType: EasyLoadingMaskType.black);
+    } finally {
+      EasyLoading.dismiss();
     }
   }
 }
