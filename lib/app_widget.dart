@@ -1,5 +1,6 @@
-import 'package:before_start/modules/design_system/app_colors.dart';
+import 'package:before_start/modules/design_system/tokens/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class AppWidget extends StatelessWidget {
@@ -11,6 +12,7 @@ class AppWidget extends StatelessWidget {
       title: 'Mentoria Before Start',
       routeInformationParser: Modular.routeInformationParser,
       routerDelegate: Modular.routerDelegate,
+      builder: EasyLoading.init(),
       theme: ThemeData(
         colorScheme: const ColorScheme(
           brightness: Brightness.light,
@@ -27,6 +29,6 @@ class AppWidget extends StatelessWidget {
         ),
         primarySwatch: Colors.amber,
       ),
-    ); //added by extension
+    );
   }
 }

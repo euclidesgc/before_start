@@ -1,24 +1,18 @@
 import 'dart:convert';
 
-import '../../data/models/user_model.dart';
-
-UserEntity userEntityFromJson(String str) => UserEntity.fromJson(json.decode(str));
-
-String userEntityToJson(UserEntity data) => json.encode(data.toJson());
+import 'package:before_start/modules/home_module/data/models/user_model.dart';
 
 class UserEntity {
   final String objectId;
   final String username;
-  final DateTime createdAt;
-  final DateTime updatedAt;
+  final String email;
   final bool emailVerified;
   final String sessionToken;
 
   UserEntity({
     required this.objectId,
     required this.username,
-    required this.createdAt,
-    required this.updatedAt,
+    required this.email,
     required this.emailVerified,
     required this.sessionToken,
   });
@@ -26,50 +20,56 @@ class UserEntity {
   UserEntity copyWith({
     String? objectId,
     String? username,
-    DateTime? createdAt,
-    DateTime? updatedAt,
+    String? email,
     bool? emailVerified,
     String? sessionToken,
-  }) =>
-      UserEntity(
-        objectId: objectId ?? this.objectId,
-        username: username ?? this.username,
-        createdAt: createdAt ?? this.createdAt,
-        updatedAt: updatedAt ?? this.updatedAt,
-        emailVerified: emailVerified ?? this.emailVerified,
-        sessionToken: sessionToken ?? this.sessionToken,
-      );
+  }) {
+    return UserEntity(
+      objectId: objectId ?? this.objectId,
+      username: username ?? this.username,
+      email: email ?? this.email,
+      emailVerified: emailVerified ?? this.emailVerified,
+      sessionToken: sessionToken ?? this.sessionToken,
+    );
+  }
 
-  factory UserEntity.fromJson(Map<String, dynamic> json) => UserEntity(
-        objectId: json["objectId"],
-        username: json["username"],
-        createdAt: DateTime.parse(json["createdAt"]),
-        updatedAt: DateTime.parse(json["updatedAt"]),
-        emailVerified: json["emailVerified"],
-        sessionToken: json["sessionToken"],
-      );
+  Map<String, dynamic> toMap() {
+    final result = <String, dynamic>{};
+
+    result.addAll({'objectId': objectId});
+    result.addAll({'username': username});
+    result.addAll({'email': email});
+    result.addAll({'emailVerified': emailVerified});
+    result.addAll({'sessionToken': sessionToken});
+
+    return result;
+  }
+
+  factory UserEntity.fromMap(Map<String, dynamic> map) {
+    return UserEntity(
+      objectId: map['objectId'] ?? '',
+      username: map['username'] ?? '',
+      email: map['email'] ?? '',
+      emailVerified: map['emailVerified'] ?? false,
+      sessionToken: map['sessionToken'] ?? '',
+    );
+  }
+
+  String toJson() => json.encode(toMap());
 
   toUserModel() => UserModel(
         objectId: objectId,
         username: username,
-        createdAt: createdAt,
-        updatedAt: updatedAt,
+        email: email,
         emailVerified: emailVerified,
         sessionToken: sessionToken,
       );
 
-  Map<String, dynamic> toJson() => {
-        "objectId": objectId,
-        "username": username,
-        "createdAt": createdAt.toIso8601String(),
-        "updatedAt": updatedAt.toIso8601String(),
-        "emailVerified": emailVerified,
-        "sessionToken": sessionToken,
-      };
+  factory UserEntity.fromJson(String source) => UserEntity.fromMap(json.decode(source));
 
   @override
   String toString() {
-    return 'UserEntity(objectId: $objectId, username: $username, createdAt: $createdAt, updatedAt: $updatedAt, emailVerified: $emailVerified, sessionToken: $sessionToken)';
+    return 'UserEntity(objectId: $objectId, username: $username, email: $email, emailVerified: $emailVerified, sessionToken: $sessionToken)';
   }
 
   @override
@@ -79,14 +79,13 @@ class UserEntity {
     return other is UserEntity &&
         other.objectId == objectId &&
         other.username == username &&
-        other.createdAt == createdAt &&
-        other.updatedAt == updatedAt &&
+        other.email == email &&
         other.emailVerified == emailVerified &&
         other.sessionToken == sessionToken;
   }
 
   @override
   int get hashCode {
-    return objectId.hashCode ^ username.hashCode ^ createdAt.hashCode ^ updatedAt.hashCode ^ emailVerified.hashCode ^ sessionToken.hashCode;
+    return objectId.hashCode ^ username.hashCode ^ email.hashCode ^ emailVerified.hashCode ^ sessionToken.hashCode;
   }
 }

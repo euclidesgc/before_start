@@ -17,7 +17,7 @@ class _DashboardPageState extends ModularState<DashboardPage, DashboardControlle
     return Scaffold(
         appBar: AppBar(
           automaticallyImplyLeading: true,
-          title: const Text('Dashboard do Caio'),
+          title: const Text('Dashboard'),
         ),
         drawer: Drawer(
           child: ListView(
@@ -66,6 +66,12 @@ class _DashboardPageState extends ModularState<DashboardPage, DashboardControlle
               ListTile(
                 title: const Text('Logout'),
                 onTap: () => controller.logout(),
+              ),
+              ListTile(
+                title: const Text('GetUser'),
+                onTap: () {
+                  controller.getCurrentUser();
+                },
               ),
             ],
           ),
