@@ -46,8 +46,12 @@ class DioHttpService implements IHttpService {
       Map<String, dynamic>? data,
       Map<String, dynamic>? queryParameters,
       Map<String, String>? customHeaders}) async {
-    Options? options;
-    if (customHeaders != null) options = Options(headers: customHeaders);
+    Options? options = Options();
+
+    if (customHeaders != null) {
+      options.headers = _dio.options.headers;
+      options.headers!.addAll(customHeaders);
+    }
 
     try {
       switch (method) {
