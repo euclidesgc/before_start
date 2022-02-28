@@ -5,14 +5,14 @@ import 'package:flutter_modular/flutter_modular.dart';
 import '../../domain/usecases/register_usecase.dart';
 
 class RegisterController {
-  final RegisterUsecase registerUsecase;
+  final RegisterUsecase _registerUsecase;
 
-  RegisterController(this.registerUsecase);
+  RegisterController(this._registerUsecase);
 
   void register({required NewUserDataEntity newUserDataEntity}) async {
     try {
       EasyLoading.show(status: 'Aguarde ...', maskType: EasyLoadingMaskType.black);
-      await registerUsecase(newUserDataEntity: newUserDataEntity);
+      await _registerUsecase(newUserDataEntity: newUserDataEntity);
       EasyLoading.showSuccess(
         'Você precisa verificar seu email para efetuar login',
         duration: const Duration(seconds: 3),

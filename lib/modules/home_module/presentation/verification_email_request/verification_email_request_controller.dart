@@ -1,18 +1,19 @@
-import 'package:before_start/modules/home_module/domain/usecases/request_password_reset_usecase.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-class RequestPasswordResetController {
-  final RequestPasswordResetUsecase _requestPasswordResetUsecase;
+import '../../domain/usecases/verification_email_request_usecase.dart';
 
-  RequestPasswordResetController(this._requestPasswordResetUsecase);
+class VerificationEmailRequestController {
+  final VerificationEmailRequestUsecase _verificationEmailRequestUsecase;
 
-  void requestPasswordReset({required String email}) async {
+  VerificationEmailRequestController(this._verificationEmailRequestUsecase);
+
+  void verificationEmailRequest({required String email}) async {
     try {
       EasyLoading.show(status: 'Aguarde ...', maskType: EasyLoadingMaskType.black);
-      await _requestPasswordResetUsecase(email: email.trim());
+      await _verificationEmailRequestUsecase(email: email.trim());
       EasyLoading.showSuccess(
-        "Email de recuperação de senha enviado!",
+        "Verifique seu Email para ativar sua conta",
         dismissOnTap: true,
         duration: const Duration(seconds: 3),
         maskType: EasyLoadingMaskType.black,

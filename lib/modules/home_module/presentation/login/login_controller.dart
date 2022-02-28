@@ -6,24 +6,25 @@ import '../../../utils/exceptions.dart';
 import '../../domain/entities/credentials_entity.dart';
 
 class LoginController {
-  final LoginUsecase loginUsecase;
+  final LoginUsecase _loginUsecase;
 
-  LoginController(this.loginUsecase);
+  LoginController(this._loginUsecase);
 
   void efetuarLogin({required String username, required String password}) async {
     CredentialsEntity userCredentials = CredentialsEntity(username: username.trim(), password: password.trim());
 
     try {
       EasyLoading.show(status: 'Aguarde ...', maskType: EasyLoadingMaskType.black);
-      await loginUsecase(credentials: userCredentials);
+      await _loginUsecase(credentials: userCredentials);
 
       Modular.to.pushReplacementNamed('/dashboard/');
     } on Exception catch (e) {
       if (e is BadRequestException) {
         EasyLoading.showError(e.message!, dismissOnTap: true, duration: const Duration(seconds: 5), maskType: EasyLoadingMaskType.black);
+        Modular.to.pushNamed('/verification_email_request_page');
       }
     } catch (e) {
-        EasyLoading.showError("Erro inesperado!", dismissOnTap: true, duration: const Duration(seconds: 5), maskType: EasyLoadingMaskType.black);
+      EasyLoading.showError("Erro inesperado!", dismissOnTap: true, duration: const Duration(seconds: 5), maskType: EasyLoadingMaskType.black);
     } finally {
       EasyLoading.dismiss();
     }

@@ -1,14 +1,11 @@
-import 'package:before_start/modules/home_module/data/models/credentials_model.dart';
-import 'package:before_start/modules/home_module/domain/entities/credentials_entity.dart';
-import 'package:before_start/modules/home_module/domain/entities/new_user_data_entity.dart';
-import 'package:before_start/modules/home_module/domain/entities/registered_user_entity.dart';
-import 'package:before_start/modules/home_module/domain/repositories/i_home_repository.dart';
-import 'package:before_start/modules/utils/exceptions.dart';
-import 'package:before_start/modules/utils/failures.dart';
-import 'package:flutter_easyloading/flutter_easyloading.dart';
-
+import '../../../utils/failures.dart';
+import '../../domain/entities/credentials_entity.dart';
+import '../../domain/entities/new_user_data_entity.dart';
+import '../../domain/entities/registered_user_entity.dart';
 import '../../domain/entities/user_entity.dart';
+import '../../domain/repositories/i_home_repository.dart';
 import '../datasources/i_home_datasource.dart';
+import '../models/credentials_model.dart';
 
 class HomeRepository implements IHomeRepository {
   final IHomeDatasource datasource;
