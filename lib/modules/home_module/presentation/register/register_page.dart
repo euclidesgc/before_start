@@ -1,7 +1,10 @@
 import 'package:before_start/modules/design_system/design_sistem.dart';
+import 'package:before_start/modules/home_module/presentation/register/register_controller.dart';
 import 'package:before_start/modules/utils/validation.dart';
 import 'package:flutter/material.dart';
-import 'package:parse_server_sdk_flutter/parse_server_sdk.dart';
+import 'package:flutter_modular/flutter_modular.dart';
+
+import '../../domain/entities/new_user_data_entity.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);
@@ -10,10 +13,10 @@ class RegisterPage extends StatefulWidget {
   _RegisterPageState createState() => _RegisterPageState();
 }
 
-class _RegisterPageState extends State<RegisterPage> {
-  final controllerUsername = TextEditingController();
-  final controllerPassword = TextEditingController();
-  final controllerEmail = TextEditingController();
+class _RegisterPageState extends ModularState<RegisterPage, RegisterController> {
+  final controllerUsernameTEC = TextEditingController();
+  final controllerPasswordTEC = TextEditingController();
+  final controllerEmailTEC = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -42,7 +45,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   const SizedBox(height: 32),
                   AppTextField(
                     labelText: 'Login',
-                    controller: controllerUsername,
+                    controller: controllerUsernameTEC,
                     keyboardType: TextInputType.text,
                     textCapitalization: TextCapitalization.none,
                     autocorrect: false,
@@ -58,7 +61,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   const SizedBox(height: 16),
                   AppTextField(
                     labelText: 'E-mail',
-                    controller: controllerEmail,
+                    controller: controllerEmailTEC,
                     keyboardType: TextInputType.emailAddress,
                     textCapitalization: TextCapitalization.none,
                     autocorrect: false,
@@ -72,7 +75,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   const SizedBox(height: 16),
                   AppTextField(
                     labelText: 'Password',
-                    controller: controllerPassword,
+                    controller: controllerPasswordTEC,
                     obscureText: true,
                     keyboardType: TextInputType.text,
                     textCapitalization: TextCapitalization.none,
@@ -92,7 +95,12 @@ class _RegisterPageState extends State<RegisterPage> {
                       label: 'Salvar',
                       onPressed: () {
                         if (_formKey.currentState!.validate()) {
-                          doUserRegistration();
+                          NewUserDataEntity newUserDataEntity = NewUserDataEntity(
+                            email: controllerEmailTEC.text.trim(),
+                            password: controllerPasswordTEC.text.trim(),
+                            username: controllerUsernameTEC.text.trim(),
+                          );
+                          controller.register(newUserDataEntity: newUserDataEntity);
                         }
                       },
                     ),
@@ -102,30 +110,5 @@ class _RegisterPageState extends State<RegisterPage> {
             ),
           ),
         ));
-  }
-
-  void doUserRegistration() async {
-    final username = controllerUsername.text.trim();
-    final email = controllerEmail.text.trim();
-    final password = controllerPassword.text.trim();
-
-    final user = ParseUser.createUser(username, password, email);
-
-    var response = await user.signUp();
-
-    if (response.success) {
-      AppDialog.showSuccess(
-          context: context,
-          message: 'User was successfully created!\nPlease verify your email before Login',
-          onPressed: () async {
-            Navigator.pop(context);
-          });
-    } else {
-      AppDialog.showError(
-        context: context,
-        message: response.error!.message,
-        onPressed: () => Navigator.of(context).pop(),
-      );
-    }
   }
 }

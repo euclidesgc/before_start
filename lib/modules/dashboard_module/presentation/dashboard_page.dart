@@ -67,6 +67,12 @@ class _DashboardPageState extends ModularState<DashboardPage, DashboardControlle
                 title: const Text('Logout'),
                 onTap: () => controller.logout(),
               ),
+              ListTile(
+                title: const Text('GetUser'),
+                onTap: () {
+                  controller.getCurrentUser();
+                },
+              ),
             ],
           ),
         ),

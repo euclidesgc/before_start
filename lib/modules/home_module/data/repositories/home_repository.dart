@@ -1,7 +1,11 @@
 import 'package:before_start/modules/home_module/data/models/credentials_model.dart';
 import 'package:before_start/modules/home_module/domain/entities/credentials_entity.dart';
+import 'package:before_start/modules/home_module/domain/entities/new_user_data_entity.dart';
+import 'package:before_start/modules/home_module/domain/entities/registered_user_entity.dart';
 import 'package:before_start/modules/home_module/domain/repositories/i_home_repository.dart';
+import 'package:before_start/modules/utils/exceptions.dart';
 import 'package:before_start/modules/utils/failures.dart';
+import 'package:flutter_easyloading/flutter_easyloading.dart';
 
 import '../../domain/entities/user_entity.dart';
 import '../datasources/i_home_datasource.dart';
@@ -17,18 +21,9 @@ class HomeRepository implements IHomeRepository {
 
     try {
       final userModel = await datasource.login(credentials: credentialsModel);
-
-      UserEntity userEntity = UserEntity(
-        objectId: userModel.objectId,
-        username: userModel.username,
-        createdAt: userModel.createdAt,
-        updatedAt: userModel.updatedAt,
-        emailVerified: userModel.emailVerified,
-        sessionToken: userModel.sessionToken,
-      );
-      return userEntity;
+      return userModel.toUserEntity();
     } catch (e) {
-      throw ServerFailure();
+      rethrow;
     }
   }
 
@@ -40,21 +35,42 @@ class HomeRepository implements IHomeRepository {
       throw ServerFailure();
     }
   }
+
+  @override
+  Future<UserEntity> getCurrentUser({required String sessionToken}) async {
+    try {
+      final userModel = await datasource.getCurrentUser(sessionToken: sessionToken);
+      return userModel.toUserEntity();
+    } catch (e) {
+      throw ServerFailure();
+    }
+  }
+
+  @override
+  Future<void> requestPasswordReset({required String email}) async {
+    try {
+      await datasource.requestPasswordReset(email: email);
+    } catch (e) {
+      throw ServerFailure();
+    }
+  }
+
+  @override
+  Future<void> verificationEmailRequest({required String email}) async {
+    try {
+      await datasource.verificationEmailRequest(email: email);
+    } catch (e) {
+      throw ServerFailure();
+    }
+  }
+
+  @override
+  Future<RegisteredUserEntity> register({required NewUserDataEntity newUserDataEntity}) async {
+    try {
+      final result = await datasource.register(newUserDataModel: newUserDataEntity.toNewUserDataModel());
+      return result.toRegisteredUserEntity();
+    } catch (e) {
+      throw ServerFailure();
+    }
+  }
 }
-
-
-
-// void efetuarLogin({required String login, required String senha}) async {
-//     final username = login.trim();
-//     final password = senha.trim();
-
-//     final user = ParseUser(username, password, null);
-//     var response = await user.login();
-
-//     if (response.success) {
-//       Modular.to.pushReplacementNamed('/dashboard/');
-//     } else {
-//       //implementar isso usando Bloc
-//       throw LoginError(message: response.error!.message);
-//     }
-//   }
