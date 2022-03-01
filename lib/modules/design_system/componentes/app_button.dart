@@ -1,5 +1,6 @@
-import '../design_sistem.dart';
 import 'package:flutter/material.dart';
+
+import '../design_sistem.dart';
 
 class AppButton extends StatelessWidget {
   final String label;
@@ -27,13 +28,18 @@ class AppButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       height: 50,
+      width: MediaQuery.of(context).size.width,
       child: ElevatedButton(
-          child: Text(label),
-          onPressed: onPressed,
-          style: ElevatedButton.styleFrom(
-            primary: color,
-            onPrimary: labelColor,
-          )),
+        child: Text(label),
+        onPressed: onPressed,
+        style: ElevatedButton.styleFrom(
+          primary: color,
+          onPrimary: labelColor,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30.0),
+          ),
+        ),
+      ),
     );
   }
 }
