@@ -13,7 +13,7 @@ import 'domain/usecases/logout_usecase.dart';
 import 'domain/usecases/register_usecase.dart';
 import 'domain/usecases/request_password_reset_usecase.dart';
 import 'domain/usecases/verification_email_request_usecase.dart';
-import 'home_page.dart';
+import 'presentation/home_page/home_page.dart';
 import 'presentation/login/login_controller.dart';
 import 'presentation/login/login_page.dart';
 import 'presentation/register/register_controller.dart';
