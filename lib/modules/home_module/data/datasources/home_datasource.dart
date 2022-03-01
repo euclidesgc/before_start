@@ -1,5 +1,5 @@
-import 'package:before_start/modules/home_module/data/models/new_user_data_model.dart';
-import 'package:before_start/modules/home_module/data/models/registered_user_model.dart';
+import '../models/new_user_data_model.dart';
+import '../models/registered_user_model.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../../common_module/http_service/i_http_service.dart';

@@ -1,6 +1,6 @@
-import 'package:before_start/app_module.dart';
-import 'package:before_start/app_widget.dart';
-import 'package:before_start/modules/design_system/design_sistem.dart';
+import 'app_module.dart';
+import 'app_widget.dart';
+import 'modules/design_system/design_sistem.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';

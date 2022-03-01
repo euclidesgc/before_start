@@ -1,5 +1,5 @@
-import 'package:before_start/modules/common_module/commom_store.dart';
-import 'package:before_start/modules/home_module/domain/usecases/get_current_user_usecase.dart';
+import '../../common_module/commom_store.dart';
+import '../../home_module/domain/usecases/get_current_user_usecase.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_modular/flutter_modular.dart';

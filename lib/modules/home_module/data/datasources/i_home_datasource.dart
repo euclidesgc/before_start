@@ -1,4 +1,4 @@
-import 'package:before_start/modules/home_module/data/models/new_user_data_model.dart';
+import '../models/new_user_data_model.dart';
 
 import '../models/credentials_model.dart';
 import '../models/registered_user_model.dart';

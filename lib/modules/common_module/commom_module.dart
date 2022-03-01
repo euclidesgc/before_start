@@ -1,4 +1,4 @@
-import 'package:before_start/modules/common_module/commom_store.dart';
+import 'commom_store.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'http_service/dio_http_service.dart';

@@ -1,6 +1,6 @@
-import 'package:before_start/modules/home_module/presentation/reset_password/request_password_reset_controller.dart';
-import 'package:before_start/modules/utils/formatters.dart';
-import 'package:before_start/modules/utils/validation.dart';
+import 'request_password_reset_controller.dart';
+import '../../../utils/formatters.dart';
+import '../../../utils/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 

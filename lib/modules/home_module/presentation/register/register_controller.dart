@@ -1,4 +1,4 @@
-import 'package:before_start/modules/home_module/domain/entities/new_user_data_entity.dart';
+import '../../domain/entities/new_user_data_entity.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 

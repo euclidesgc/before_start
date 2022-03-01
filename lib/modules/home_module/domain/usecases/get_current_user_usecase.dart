@@ -1,8 +1,8 @@
-import 'package:before_start/modules/common_module/commom_store.dart';
-import 'package:before_start/modules/home_module/domain/repositories/i_home_repository.dart';
 import 'package:flutter/foundation.dart';
 
+import '../../../common_module/commom_store.dart';
 import '../entities/user_entity.dart';
+import '../repositories/i_home_repository.dart';
 
 class GetCurrentUserUsecase {
   final IHomeRepository repository;

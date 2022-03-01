@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:before_start/modules/home_module/data/models/user_model.dart';
+import '../../data/models/user_model.dart';
 
 class UserEntity {
   final String objectId;
