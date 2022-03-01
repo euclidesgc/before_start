@@ -11,7 +11,7 @@ class VerificationEmailRequestUsecase {
     try {
       await repository.verificationEmailRequest(email: email);
     } catch (e) {
-      debugPrint("🔴 $e");
+      debugPrint("🟠 $e");
       rethrow;
     }
   }

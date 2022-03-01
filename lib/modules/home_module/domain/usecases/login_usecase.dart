@@ -17,7 +17,7 @@ class LoginUsecase {
       store.user = response;
       return response;
     } catch (e) {
-      debugPrint("🔴 $e");
+      debugPrint("🟠 $e");
       rethrow;
     }
   }

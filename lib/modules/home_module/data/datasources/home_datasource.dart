@@ -1,10 +1,10 @@
-import '../models/new_user_data_model.dart';
-import '../models/registered_user_model.dart';
 import 'package:flutter/foundation.dart';
 
+import '../../../common_module/errors/exceptions.dart';
 import '../../../common_module/http_service/i_http_service.dart';
-import '../../../utils/exceptions.dart';
 import '../models/credentials_model.dart';
+import '../models/new_user_data_model.dart';
+import '../models/registered_user_model.dart';
 import '../models/user_model.dart';
 import 'i_home_datasource.dart';
 

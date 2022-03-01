@@ -23,7 +23,7 @@ class DashboardController {
       await logoutUsecase(user: commomStore.user);
       Modular.to.popUntil(ModalRoute.withName('/home'));
     } catch (e) {
-      debugPrint("🔴 $e");
+      debugPrint("🟠 $e");
     } finally {
       EasyLoading.dismiss();
     }
@@ -34,7 +34,7 @@ class DashboardController {
       EasyLoading.show(status: 'Aguarde ...', maskType: EasyLoadingMaskType.black);
       await getCurrentUserUsecase();
     } catch (e) {
-      debugPrint("🔴 $e");
+      debugPrint("🟠 $e");
     } finally {
       EasyLoading.dismiss();
     }

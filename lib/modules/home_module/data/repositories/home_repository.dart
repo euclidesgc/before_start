@@ -1,4 +1,5 @@
-import '../../../utils/failures.dart';
+
+import '../../../common_module/errors/failures.dart';
 import '../../domain/entities/credentials_entity.dart';
 import '../../domain/entities/new_user_data_entity.dart';
 import '../../domain/entities/registered_user_entity.dart';

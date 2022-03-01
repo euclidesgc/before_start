@@ -12,7 +12,7 @@ class LogoutUsecase {
     try {
       return await repository.logout(user: user);
     } catch (e) {
-      debugPrint("🔴 $e");
+      debugPrint("🟠 $e");
       throw Exception();
     }
   }

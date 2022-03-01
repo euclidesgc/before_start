@@ -14,7 +14,7 @@ class GetCurrentUserUsecase {
     try {
       return await repository.getCurrentUser(sessionToken: store.user.sessionToken);
     } catch (e) {
-      debugPrint("🔴 $e");
+      debugPrint("🟠 $e");
       throw Exception();
     }
   }

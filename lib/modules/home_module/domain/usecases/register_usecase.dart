@@ -16,7 +16,7 @@ class RegisterUsecase {
       final response = await repository.register(newUserDataEntity: newUserDataEntity);
       return response;
     } catch (e) {
-      debugPrint("🔴 $e");
+      debugPrint("🟠 $e");
       throw Exception();
     }
   }

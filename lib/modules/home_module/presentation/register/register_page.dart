@@ -1,10 +1,10 @@
-import '../../../design_system/design_sistem.dart';
-import 'register_controller.dart';
-import '../../../utils/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../common_module/utils/validation.dart';
+import '../../../design_system/design_sistem.dart';
 import '../../domain/entities/new_user_data_entity.dart';
+import 'register_controller.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({Key? key}) : super(key: key);

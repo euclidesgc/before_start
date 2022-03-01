@@ -1,7 +1,7 @@
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import '../../../utils/exceptions.dart';
+import '../../../common_module/errors/exceptions.dart';
 import '../../domain/usecases/verification_email_request_usecase.dart';
 
 class VerificationEmailRequestController {

@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:logger/logger.dart';
 
-import '../../utils/exceptions.dart';
+import '../errors/exceptions.dart';
 import 'i_http_service.dart';
 
 class DioHttpService implements IHttpService {
@@ -95,22 +95,16 @@ class DioHttpService implements IHttpService {
         debugPrint("Timeout!");
       }
       if (e.type == DioErrorType.response) {
-        debugPrint("🔴 Response.code out of range 2xx : ${e.response!.statusCode}");
+        debugPrint("🟠 Response.code out of range 2xx : ${e.response!.statusCode}");
         if (e.response!.statusCode == 400) {
-          // retornar o tratamento padrão para não autorizado
-          // implementar tabém para outros tipos de erros
           debugPrint(e.response!.data["error"]);
           throw BadRequestException(message: e.response!.data["error"]);
         }
         if (e.response!.statusCode == 401) {
-          // retornar o tratamento padrão para não autorizado
-          // implementar tabém para outros tipos de erros
           throw UnimplementedError();
         }
         if (e.response!.data["code"] == 101) {
-          // retornar o tratamento padrão para não autorizado
-          // implementar tabém para outros tipos de erros
-          debugPrint("🔴 Login ou senha inválida");
+          debugPrint("🟠 Login ou senha inválida");
           throw UnimplementedError();
         }
         return e.response;
