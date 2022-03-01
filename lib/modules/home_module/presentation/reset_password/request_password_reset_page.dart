@@ -1,10 +1,10 @@
-import 'package:before_start/modules/home_module/presentation/reset_password/request_password_reset_controller.dart';
-import 'package:before_start/modules/utils/formatters.dart';
-import 'package:before_start/modules/utils/validation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../../common_module/utils/formatters.dart';
+import '../../../common_module/utils/validation.dart';
 import '../../../design_system/design_sistem.dart';
+import 'request_password_reset_controller.dart';
 
 class RequestPasswordResetPage extends StatefulWidget {
   const RequestPasswordResetPage({Key? key}) : super(key: key);

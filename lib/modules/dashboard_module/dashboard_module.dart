@@ -1,4 +1,4 @@
-import 'package:before_start/modules/home_module/home_module.dart';
+import '../home_module/home_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../common_module/commom_module.dart';
@@ -9,6 +9,7 @@ import 'presentation/dashboard_controller.dart';
 import 'presentation/dashboard_page.dart';
 
 class DashboardModule extends Module {
+  
   @override
   List<Module> get imports => [
         CommomModule(),

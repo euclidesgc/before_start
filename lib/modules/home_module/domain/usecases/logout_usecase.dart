@@ -1,4 +1,4 @@
-import 'package:before_start/modules/home_module/domain/entities/user_entity.dart';
+import '../entities/user_entity.dart';
 import 'package:flutter/foundation.dart';
 
 import '../repositories/i_home_repository.dart';
@@ -12,7 +12,7 @@ class LogoutUsecase {
     try {
       return await repository.logout(user: user);
     } catch (e) {
-      debugPrint("🔴 $e");
+      debugPrint("🟠 $e");
       throw Exception();
     }
   }

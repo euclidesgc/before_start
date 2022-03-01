@@ -1,6 +1,6 @@
-import 'package:before_start/modules/home_module/domain/entities/credentials_entity.dart';
-import 'package:before_start/modules/home_module/domain/entities/new_user_data_entity.dart';
-import 'package:before_start/modules/home_module/domain/entities/user_entity.dart';
+import '../entities/credentials_entity.dart';
+import '../entities/new_user_data_entity.dart';
+import '../entities/user_entity.dart';
 
 import '../entities/registered_user_entity.dart';
 

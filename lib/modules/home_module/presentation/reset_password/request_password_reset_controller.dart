@@ -1,6 +1,7 @@
-import 'package:before_start/modules/home_module/domain/usecases/request_password_reset_usecase.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
+import '../../domain/usecases/request_password_reset_usecase.dart';
 
 class RequestPasswordResetController {
   final RequestPasswordResetUsecase _requestPasswordResetUsecase;

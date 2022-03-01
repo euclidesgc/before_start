@@ -1,4 +1,4 @@
-import 'package:before_start/modules/home_module/domain/repositories/i_home_repository.dart';
+import '../repositories/i_home_repository.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../../common_module/commom_store.dart';
@@ -16,7 +16,7 @@ class RegisterUsecase {
       final response = await repository.register(newUserDataEntity: newUserDataEntity);
       return response;
     } catch (e) {
-      debugPrint("🔴 $e");
+      debugPrint("🟠 $e");
       throw Exception();
     }
   }

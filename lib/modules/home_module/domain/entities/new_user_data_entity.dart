@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:before_start/modules/home_module/data/models/new_user_data_model.dart';
+import '../../data/models/new_user_data_model.dart';
 
 class NewUserDataEntity {
   final String username;

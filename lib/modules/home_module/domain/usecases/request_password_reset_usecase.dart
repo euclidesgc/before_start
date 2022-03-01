@@ -11,7 +11,7 @@ class RequestPasswordResetUsecase {
     try {
       await repository.requestPasswordReset(email: email);
     } catch (e) {
-      debugPrint("🔴 $e");
+      debugPrint("🟠 $e");
       throw Exception();
     }
   }

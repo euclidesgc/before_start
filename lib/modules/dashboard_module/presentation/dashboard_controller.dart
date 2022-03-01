@@ -1,5 +1,5 @@
-import 'package:before_start/modules/common_module/commom_store.dart';
-import 'package:before_start/modules/home_module/domain/usecases/get_current_user_usecase.dart';
+import '../../common_module/commom_store.dart';
+import '../../home_module/domain/usecases/get_current_user_usecase.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -23,7 +23,7 @@ class DashboardController {
       await logoutUsecase(user: commomStore.user);
       Modular.to.popUntil(ModalRoute.withName('/home'));
     } catch (e) {
-      debugPrint("🔴 $e");
+      debugPrint("🟠 $e");
     } finally {
       EasyLoading.dismiss();
     }
@@ -34,7 +34,7 @@ class DashboardController {
       EasyLoading.show(status: 'Aguarde ...', maskType: EasyLoadingMaskType.black);
       await getCurrentUserUsecase();
     } catch (e) {
-      debugPrint("🔴 $e");
+      debugPrint("🟠 $e");
     } finally {
       EasyLoading.dismiss();
     }
