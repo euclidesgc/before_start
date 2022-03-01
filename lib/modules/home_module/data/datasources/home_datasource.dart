@@ -67,7 +67,11 @@ class HomeDatasource implements IHomeDatasource {
       await httpClient.request(method: Method.POST, path: '/verificationEmailRequest', data: {"email": email});
     } catch (e) {
       debugPrint("$e");
-      throw Exception();
+      if (e is BadRequestException) {
+        rethrow;
+      } else {
+        throw Exception();
+      }
     }
   }
 

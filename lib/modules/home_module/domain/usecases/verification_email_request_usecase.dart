@@ -12,7 +12,7 @@ class VerificationEmailRequestUsecase {
       await repository.verificationEmailRequest(email: email);
     } catch (e) {
       debugPrint("🔴 $e");
-      throw Exception();
+      rethrow;
     }
   }
 }

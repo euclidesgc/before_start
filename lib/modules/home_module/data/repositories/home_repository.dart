@@ -57,7 +57,7 @@ class HomeRepository implements IHomeRepository {
     try {
       await datasource.verificationEmailRequest(email: email);
     } catch (e) {
-      throw ServerFailure();
+      rethrow;
     }
   }
 

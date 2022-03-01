@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:logger/logger.dart';
 
 import '../../utils/exceptions.dart';
 import 'i_http_service.dart';
@@ -11,6 +12,18 @@ class DioHttpService implements IHttpService {
   final String baseUrl = dotenv.env['baseUrl']!;
 
   final _dio = Dio();
+
+  var logger = Logger(
+    printer: PrettyPrinter(
+        methodCount: 1, // number of method calls to be displayed
+        errorMethodCount: 1, // number of method calls if stacktrace is provided
+        lineLength: 120, // width of the output
+        colors: false, // Colorful log messages
+        printEmojis: true, // Print an emoji for each log message
+        printTime: false // Should each log print contain a timestamp
+        ),
+    output: null,
+  );
 
   DioHttpService({List<Interceptor> interceptors = const []}) {
     _dio.options = BaseOptions(
@@ -28,12 +41,18 @@ class DioHttpService implements IHttpService {
     _dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (requestOptions, handler) {
+          logger.i("REQUEST........: [${requestOptions.method}] '${requestOptions.path}'\n"
+              "REQUEST VALUES.: ${requestOptions.queryParameters}\n"
+              "HEADERS........: ${requestOptions.headers}");
           return handler.next(requestOptions);
         },
         onResponse: (response, handler) {
+          logger.i("RESPONSE..: StatusCode: [${response.statusCode}]\n"
+              "DATA.....: ${response.data}");
           return handler.next(response);
         },
         onError: (err, handler) {
+          logger.e("Error..: StatusCode: [${err.response?.statusCode}]");
           return handler.next(err);
         },
       ),
