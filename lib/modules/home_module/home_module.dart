@@ -1,3 +1,4 @@
+import 'package:before_start/modules/home_module/presentation/login/bloc/login_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../common_module/commom_module.dart';
@@ -14,7 +15,6 @@ import 'domain/usecases/register_usecase.dart';
 import 'domain/usecases/request_password_reset_usecase.dart';
 import 'domain/usecases/verification_email_request_usecase.dart';
 import 'presentation/home_page/home_page.dart';
-import 'presentation/login/login_controller.dart';
 import 'presentation/login/login_page.dart';
 import 'presentation/register/register_controller.dart';
 import 'presentation/register/register_page.dart';
@@ -36,19 +36,19 @@ class HomeModule extends Module {
         Bind.singleton((i) => LoginUsecase(repository: i<IHomeRepository>(), store: i<CommomStore>()), export: true),
         Bind.singleton((i) => LogoutUsecase(repository: i<IHomeRepository>()), export: true),
         Bind.singleton((i) => GetCurrentUserUsecase(store: i<CommomStore>(), repository: i<IHomeRepository>()), export: true),
-        Bind.singleton((i) => LoginController(i<LoginUsecase>()), export: true),
         Bind.singleton((i) => RequestPasswordResetUsecase(repository: i<IHomeRepository>()), export: true),
         Bind.singleton((i) => RequestPasswordResetController(i<RequestPasswordResetUsecase>()), export: true),
         Bind.singleton((i) => RegisterUsecase(store: i<CommomStore>(), repository: i<IHomeRepository>()), export: true),
         Bind.singleton((i) => VerificationEmailRequestUsecase(repository: i<IHomeRepository>()), export: true),
         Bind.singleton((i) => RegisterController(i<RegisterUsecase>()), export: true),
         Bind.singleton((i) => VerificationEmailRequestController(i<VerificationEmailRequestUsecase>()), export: true),
+        Bind.singleton((i) => LoginBloc(i<LoginUsecase>()), export: true),
       ];
 
   @override
   List<ModularRoute> get routes => [
         ChildRoute('/', child: (context, args) => const HomePage()),
-        ChildRoute('/login_page', child: (context, args) => const LoginPage()),
+        ChildRoute('/login_page', child: (context, args) => LoginPage(loginUsecase: Modular.get<LoginUsecase>())),
         ChildRoute('/register_page', child: (context, args) => const RegisterPage()),
         ChildRoute('/verification_email_request_page', child: (context, args) => const VerificationEmailRequestPage()),
         ChildRoute('/reset_password_page', child: (context, args) => const RequestPasswordResetPage()),
