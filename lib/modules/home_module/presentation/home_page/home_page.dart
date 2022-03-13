@@ -15,41 +15,43 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Mentoria Before Start'),
+        title: const Text('Login'),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 100),
-            child: SizedBox(
-              height: 200,
-              child: Image.asset(AppImages.logo),
+      body: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 50),
+              child: SizedBox(
+                height: 200,
+                child: Image.asset(AppImages.logo),
+              ),
             ),
+          ],
+        ),
+      ),
+      bottomSheet: SizedBox(
+        width: MediaQuery.of(context).size.width,
+        height: 156,
+        child: Padding(
+          padding: const EdgeInsets.only(top: 0, left: 16, right: 16, bottom: 40),
+          child: Column(
+            children: [
+              AppButton.secondary(
+                label: 'Login',
+                onPressed: () => Modular.to.pushNamed('/login_page'),
+              ),
+              const SizedBox(height: 16),
+              AppButton(
+                label: 'Novo usuário',
+                onPressed: () => Modular.to.pushNamed('/register_page'),
+              ),
+            ],
           ),
-          const SizedBox(height: 16),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                AppButton.secondary(
-                  label: 'Continue',
-                  onPressed: () => Modular.to.pushNamed('/login_page'),
-                ),
-                const SizedBox(height: 16),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 100),
-                  child: AppButton(
-                    label: 'Game Start',
-                    onPressed: () => Modular.to.pushNamed('/register_page'),
-                  ),
-                ),
-              ],
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }

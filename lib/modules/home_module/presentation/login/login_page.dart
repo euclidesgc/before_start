@@ -37,17 +37,8 @@ class LoginPage extends StatelessWidget {
             const SizedBox(height: 16),
             Padding(
               padding: const EdgeInsets.all(16),
-              child: _loginForm(context),
+              child: _loginForm(),
             ),
-            // const SizedBox(height: 16),
-            // TextButton(
-            //   child: const Text("Esqueceu a senha?"),
-            //   onPressed: () => Modular.to.pushNamed('/reset_password_page'),
-            // ),
-            // AppButton.secondary(
-            //   label: 'Esqueceu a senha?',
-            //   onPressed: () => Modular.to.pushNamed('/reset_password_page'),
-            // ),
           ],
         ),
         bottomSheet: _loginButton(),
@@ -55,7 +46,7 @@ class LoginPage extends StatelessWidget {
     );
   }
 
-  Widget _loginForm(BuildContext context) {
+  Widget _loginForm() {
     return Form(
       key: _formKey,
       child: Column(
