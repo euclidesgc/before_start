@@ -26,6 +26,7 @@ class DioHttpService implements IHttpService {
   );
 
   DioHttpService({List<Interceptor> interceptors = const []}) {
+
     _dio.options = BaseOptions(
       baseUrl: baseUrl, connectTimeout: 5000, receiveTimeout: 100000,
       // Default headers
@@ -34,6 +35,7 @@ class DioHttpService implements IHttpService {
         'x-parse-rest-api-key': restApiKey,
       },
     );
+    
     initInterceptors();
   }
 
@@ -110,7 +112,7 @@ class DioHttpService implements IHttpService {
         return e.response;
       }
     } catch (e) {
-      throw UnimplementedError();
+      throw Exception();
     }
   }
 }

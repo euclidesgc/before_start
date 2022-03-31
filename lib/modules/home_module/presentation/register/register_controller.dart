@@ -10,7 +10,6 @@ class RegisterController {
   RegisterController(this._registerUsecase);
 
   void register({required NewUserDataEntity newUserDataEntity}) async {
-
     try {
       EasyLoading.show(status: 'Aguarde ...', maskType: EasyLoadingMaskType.black);
 
@@ -22,10 +21,15 @@ class RegisterController {
         dismissOnTap: true,
         maskType: EasyLoadingMaskType.black,
       );
-      
+
       Modular.to.pushReplacementNamed('/login_page');
     } catch (e) {
-      throw Exception();
+      EasyLoading.showError(
+        'Deu erro!',
+        duration: const Duration(seconds: 3),
+        dismissOnTap: true,
+        maskType: EasyLoadingMaskType.black,
+      );
     } finally {
       EasyLoading.dismiss();
     }

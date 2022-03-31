@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_modular/flutter_modular.dart' hide ModularWatchExtension;
 
 import '../../../design_system/design_sistem.dart';
+import 'bloc/form_submission_status.dart';
 import 'bloc/login_state.dart';
 
 class LoginPage extends StatelessWidget {
@@ -113,6 +114,14 @@ class LoginPage extends StatelessWidget {
             onPressed: () async {
               if (_formKey.currentState!.validate()) {
                 context.read<LoginBloc>().add(LoginSubmitted());
+
+                if (state is SubmissionSuccess) {
+                  // da mensagem de sucesso
+                }
+
+                if (state is SubmissionFailed) {
+                  // da mensagem de erro
+                }
               }
             },
           ),

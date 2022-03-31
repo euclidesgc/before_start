@@ -7,7 +7,7 @@ class CommomModule extends Module {
   @override
   List<Bind> get binds => [
         Bind.singleton((i) => CommomStore(), export: true),
-        Bind.singleton(<IHttpService>(i) => DioHttpService(), export: true),
+        Bind.singleton((i) => DioHttpService(), export: true),
       ];
 
   @override
