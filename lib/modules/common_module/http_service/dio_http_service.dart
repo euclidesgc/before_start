@@ -26,7 +26,6 @@ class DioHttpService implements IHttpService {
   );
 
   DioHttpService({List<Interceptor> interceptors = const []}) {
-
     _dio.options = BaseOptions(
       baseUrl: baseUrl, connectTimeout: 5000, receiveTimeout: 100000,
       // Default headers
@@ -35,7 +34,7 @@ class DioHttpService implements IHttpService {
         'x-parse-rest-api-key': restApiKey,
       },
     );
-    
+
     initInterceptors();
   }
 
@@ -43,18 +42,24 @@ class DioHttpService implements IHttpService {
     _dio.interceptors.add(
       InterceptorsWrapper(
         onRequest: (requestOptions, handler) {
-          logger.i("REQUEST........: [${requestOptions.method}] '${requestOptions.path}'\n"
-              "REQUEST VALUES.: ${requestOptions.queryParameters}\n"
-              "HEADERS........: ${requestOptions.headers}");
+          if (kDebugMode) {
+            logger.i("REQUEST........: [${requestOptions.method}] '${requestOptions.path}'\n"
+                "REQUEST VALUES.: ${requestOptions.queryParameters}\n"
+                "HEADERS........: ${requestOptions.headers}");
+          }
           return handler.next(requestOptions);
         },
         onResponse: (response, handler) {
-          logger.i("RESPONSE..: StatusCode: [${response.statusCode}]\n"
-              "DATA.....: ${response.data}");
+          if (kDebugMode) {
+            logger.i("RESPONSE..: StatusCode: [${response.statusCode}]\n"
+                "DATA.....: ${response.data}");
+          }
           return handler.next(response);
         },
         onError: (err, handler) {
-          logger.e("Error..: StatusCode: [${err.response?.statusCode}]");
+          if (kDebugMode) {
+            logger.e("Error..: StatusCode: [${err.response?.statusCode}]");
+          }
           return handler.next(err);
         },
       ),
