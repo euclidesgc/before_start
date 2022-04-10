@@ -18,9 +18,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     on<LoginSubmitted>(loginSubmitted);
   }
 
-
-  
-
   void loginUserNameChanged(event, emit) {
     emit(state.copyWith(userName: event.userName));
   }
